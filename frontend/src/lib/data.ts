@@ -241,7 +241,7 @@ export const skillGroupsData = [
   {
     name: "Frontend Development",
     icon: "code",
-    skills: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Three.js", "Framer Motion", "Vite"],
+    skills: ["React.js", "Next.js", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind CSS", "Three.js", "Framer Motion", "Vite", "Ant Design"],
   },
   {
     name: "Backend & Data",
@@ -251,12 +251,12 @@ export const skillGroupsData = [
   {
     name: "DevOps & Cloud",
     icon: "cloud",
-    skills: ["Docker", "GitHub Actions", "CI/CD Pipelines", "Vercel", "Nginx", "WebRTC", "Socket.io"],
+    skills: ["Docker", "GitHub Actions", "CI/CD Pipelines", "Vercel", "Render", "Railway", "Nginx", "Linux", "WebRTC", "Socket.io"],
   },
   {
     name: "Tools & Platforms",
     icon: "settings",
-    skills: ["Git & GitHub", "Figma", "Postman", "Digital Marketing", "Technical Documentation", "CRM Systems"],
+    skills: ["VS Code", "Visual Studio", "PyCharm", "Git & GitHub", "Postman", "Figma", "MySQL", "MongoDB Atlas", "pgAdmin", "Slack", "Notion", "Digital Marketing", "Technical Documentation", "CRM Systems"],
   },
 ];
 
