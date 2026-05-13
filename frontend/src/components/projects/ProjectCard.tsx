@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Layers } from "lucide-react";
 import {
@@ -68,6 +69,20 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
           <div className="absolute -top-20 -right-20 w-40 h-40 bg-accent/[0.04] rounded-full blur-3xl" />
           <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-accent/[0.02] rounded-full blur-2xl" />
         </div>
+
+        {/* Project image banner */}
+        {project.image && (
+          <div className="relative w-full aspect-[16/9] overflow-hidden">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-[#0a0f1c]/40 to-transparent" />
+          </div>
+        )}
 
         <div className="p-7 md:p-8 flex flex-col h-full relative z-10">
           {/* Header row */}

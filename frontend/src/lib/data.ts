@@ -113,6 +113,7 @@ export const projectsData = [
     outcome: "Successfully automated front desk operations at scale, enabling the rollout of additional AI agents for Refill Requests, Lab Reports, and Callback Management.",
     stack: ["LiveKit", "n8n", "ElevenLabs", "REST APIs", "Node.js", "AI/ML"],
     featured: true,
+    image: "/images/projects/front-desk-agent.png",
   },
   {
     id: "2",
@@ -125,6 +126,7 @@ export const projectsData = [
     outcome: "Reduced manual effort across healthcare billing operations, minimized coding errors, and improved revenue recovery rates.",
     stack: ["AI/ML", "n8n", "Python", "REST APIs", "Healthcare APIs", "PostgreSQL"],
     featured: true,
+    image: "/images/projects/rcm-automation.png",
   },
   {
     id: "3",
@@ -137,6 +139,7 @@ export const projectsData = [
     outcome: "Delivered a production-ready community platform with modern UI and comprehensive feature set.",
     stack: ["React.js", "Ant Design", "Cloudinary", "REST APIs", "Node.js", "JavaScript"],
     featured: true,
+    image: "/images/projects/techspace.png",
   },
   {
     id: "4",

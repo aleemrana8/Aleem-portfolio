@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionLabel, TechStackPills } from "./ProjectParts";
 import type { ProjectData } from "./ProjectCard";
@@ -18,6 +19,25 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
   return (
     <div className="space-y-10">
+      {/* Project showcase image */}
+      {project.image && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+          className="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-white/[0.06]"
+        >
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 720px"
+            priority
+          />
+        </motion.div>
+      )}
+
       {sections.map((section, i) => (
         <motion.div
           key={section.label}
