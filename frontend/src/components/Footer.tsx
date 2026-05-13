@@ -2,6 +2,7 @@
 
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import { profileData } from "@/lib/data";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -12,13 +13,17 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand */}
-          <div className="text-center md:text-left">
-            <p className="text-sm text-slate/70">
+          <div className="text-center md:text-left flex flex-col items-center md:items-start gap-2">
+            <Image
+              src="/images/logo.png"
+              alt="Aleem Portfolio"
+              width={120}
+              height={34}
+              className="h-8 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+            />
+            <p className="text-[11px] text-slate/30 font-mono">
               Designed & Built by{" "}
-              <span className="text-accent/80 font-medium">{profileData.name}</span>
-            </p>
-            <p className="text-[11px] text-slate/30 mt-1.5 font-mono">
-              Building AI-driven solutions that convert complexity into outcomes.
+              <span className="text-accent/60">{profileData.name}</span>
             </p>
           </div>
 

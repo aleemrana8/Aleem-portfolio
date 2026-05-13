@@ -30,6 +30,10 @@ export const metadata: Metadata = {
       "Building AI-driven automation, scalable systems, and product experiences that convert complexity into outcomes.",
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({

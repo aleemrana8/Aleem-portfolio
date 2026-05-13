@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
 import { navLinks } from "@/lib/data";
+import Image from "next/image";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,9 +47,14 @@ export function Navbar() {
         <nav className="max-w-7xl mx-auto px-6 lg:px-12 h-[4.5rem] flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="relative group" aria-label="Home">
-            <span className="text-xl font-bold text-slate-lightest group-hover:text-accent transition-colors duration-500">
-              Aleem<span className="text-accent"> Portfolio</span>
-            </span>
+            <Image
+              src="/images/logo.png"
+              alt="Aleem Portfolio"
+              width={140}
+              height={40}
+              className="h-10 w-auto object-contain group-hover:brightness-125 transition-all duration-500"
+              priority
+            />
           </a>
 
           {/* Desktop Nav */}
