@@ -2,7 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Experience } from "@/components/sections/Experience";
-import { Projects } from "@/components/sections/Projects";
+import { FeaturedProjects } from "@/components/projects/FeaturedProjects";
 import { Skills } from "@/components/sections/Skills";
 import { Services } from "@/components/sections/Services";
 import { MetricsDashboard } from "@/components/sections/MetricsDashboard";
@@ -20,7 +20,7 @@ export default function Home() {
       <Hero />
       <About />
       <Experience />
-      <Projects />
+      <FeaturedProjects />
       <Skills />
       <Services />
       <ArchitectureDiagram />
