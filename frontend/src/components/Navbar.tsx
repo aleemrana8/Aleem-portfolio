@@ -2,10 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Settings } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/data";
 import Image from "next/image";
-import Link from "next/link";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -82,13 +81,6 @@ export function Navbar() {
                 {link.label}
               </motion.a>
             ))}
-            <Link
-              href="/admin"
-              className="ml-2 p-2 rounded-lg text-slate/40 hover:text-accent hover:bg-accent/[0.06] transition-all duration-300"
-              title="Admin Panel"
-            >
-              <Settings size={16} />
-            </Link>
           </div>
 
           {/* Mobile toggle */}

@@ -2,9 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ArrowDown, Github, Linkedin, Mail, ChevronRight, Instagram, FileText, Layers } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, ChevronRight, Instagram } from "lucide-react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import { profileData } from "@/lib/data";
 
 const HeroScene = dynamic(
@@ -128,18 +127,11 @@ export function Hero() {
                 />
               </span>
             </a>
-            <Link href="/case-studies" className="btn-primary">
+            <a href="#projects" className="btn-primary">
               <span className="relative z-10 flex items-center gap-2">
-                <Layers size={15} />
-                Case Studies
+                View Projects
               </span>
-            </Link>
-            <Link href="/resume" className="btn-primary">
-              <span className="relative z-10 flex items-center gap-2">
-                <FileText size={15} />
-                Download Resume
-              </span>
-            </Link>
+            </a>
           </motion.div>
 
           {/* Social links */}
