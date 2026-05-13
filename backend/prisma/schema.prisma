@@ -171,3 +171,147 @@ model SiteSettings {
   enableContact   Boolean @default(true)
   maintenanceMode Boolean @default(false)
 }
+
+// ─── AI Assistant ───────────────────────────────────────
+
+model ChatSession {
+  id           String        @id @default(cuid())
+  visitorId    String
+  mode         String        @default("general") // general | recruiter | project-dive
+  metadata     Json?
+  messages     ChatMessage[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model ChatMessage {
+  id        String      @id @default(cuid())
+  sessionId String
+  session   ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  role      String      // user | assistant | system
+  content   String      @db.Text
+  sources   Json?       // grounding citations
+  createdAt DateTime    @default(now())
+}
+
+model AIEmbedding {
+  id        String   @id @default(cuid())
+  source    String   // resume | project | blog | skill | experience | service
+  sourceId  String?
+  content   String   @db.Text
+  embedding Float[]  // vector stored as float array
+  metadata  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ─── Recruiter Intelligence ─────────────────────────────
+
+model RecruiterLead {
+  id          String   @id @default(cuid())
+  name        String?
+  email       String?
+  company     String?
+  roleType    String?  // hiring-manager | recruiter | founder
+  budget      String?
+  urgency     String?  // immediate | 1-month | exploring
+  notes       String?  @db.Text
+  source      String   @default("ai-chat") // ai-chat | contact-form | resume-download
+  score       Int      @default(0) // lead quality 0-100
+  sessionId   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ─── Resume Generator ───────────────────────────────────
+
+model ResumeTemplate {
+  id        String   @id @default(cuid())
+  name      String   // Technical PM | AI Lead | Solution Architect
+  slug      String   @unique
+  template  String   @db.Text // markdown template
+  keywords  String[] @default([])
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ResumeDownload {
+  id         String   @id @default(cuid())
+  templateId String?
+  roleType   String
+  visitorId  String?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime @default(now())
+}
+
+// ─── Analytics ──────────────────────────────────────────
+
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  event     String   // page_view | project_click | resume_download | ai_chat | contact_submit
+  page      String?
+  referrer  String?
+  visitorId String?
+  metadata  Json?
+  createdAt DateTime @default(now())
+}
+
+model VisitorSession {
+  id        String   @id @default(cuid())
+  visitorId String
+  ipAddress String?
+  userAgent String?
+  country   String?
+  city      String?
+  device    String?  // desktop | mobile | tablet
+  pages     Json?    // array of page paths visited
+  duration  Int?     // seconds
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BlogView {
+  id        String   @id @default(cuid())
+  postId    String
+  visitorId String?
+  referrer  String?
+  createdAt DateTime @default(now())
+}
+
+model ProjectMetric {
+  id        String   @id @default(cuid())
+  projectId String
+  event     String   // view | click_live | click_github | case_study_view
+  visitorId String?
+  createdAt DateTime @default(now())
+}
+
+// ─── Case Studies ───────────────────────────────────────
+
+model CaseStudy {
+  id               String   @id @default(cuid())
+  projectId        String?
+  slug             String   @unique
+  title            String
+  subtitle         String?
+  heroImage        String?
+  problem          String   @db.Text
+  businessContext  String?  @db.Text
+  solution         String   @db.Text
+  architecture     String?  @db.Text // markdown/mermaid diagram
+  challenges       Json?    // array of { title, description }
+  workflow         String?  @db.Text // markdown workflow description
+  aiIntegrations   Json?    // array of AI tools used
+  metrics          Json?    // array of { label, value, description }
+  stack            String[] @default([])
+  timeline         Json?    // array of { date, milestone }
+  lessons          Json?    // array of strings
+  futureWork       Json?    // array of strings
+  published        Boolean  @default(false)
+  featured         Boolean  @default(false)
+  order            Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}

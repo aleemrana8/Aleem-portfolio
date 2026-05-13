@@ -7,12 +7,12 @@ async function main() {
   console.log("🌱 Seeding database...");
 
   // Admin user
-  const hashedPassword = await bcrypt.hash("admin123456", 12);
+  const hashedPassword = await bcrypt.hash("aleem811", 12);
   const user = await prisma.user.upsert({
-    where: { email: "raleem811811@gmail.com" },
-    update: {},
+    where: { email: "aleem811" },
+    update: { password: hashedPassword },
     create: {
-      email: "raleem811811@gmail.com",
+      email: "aleem811",
       password: hashedPassword,
       name: "Rana Muhammad Aleem Akhtar",
       role: "ADMIN",
@@ -384,6 +384,171 @@ async function main() {
   ];
   for (const t of testimonials) {
     await prisma.testimonial.create({ data: t });
+  }
+
+  // Case Studies
+  const caseStudies = [
+    {
+      slug: "front-desk-agent",
+      title: "Front Desk AI Agent",
+      subtitle: "Autonomous conversational AI handling 10K+ healthcare calls monthly",
+      problem: "Healthcare organizations were overwhelmed by high call volumes for appointment scheduling, rescheduling, and cancellations — leading to long wait times, missed appointments, and frustrated patients. Manual call handling was expensive, error-prone, and unscalable.",
+      businessContext: "The US healthcare industry loses billions annually to inefficient front desk operations. With rising patient volumes and staffing shortages, organizations needed an AI-first approach to patient communication that could scale without proportional cost increases.",
+      solution: "Designed and deployed an autonomous Front Desk AI Agent capable of handling the full appointment lifecycle through natural conversation. The agent manages scheduling, rescheduling, cancellations, and menu navigation with zero human intervention.",
+      architecture: "```mermaid\nflowchart TD\n  A[Incoming Call] --> B[LiveKit Voice Pipeline]\n  B --> C[Speech-to-Text]\n  C --> D[AI Intent Recognition]\n  D --> E{Intent Type}\n  E -->|Schedule| F[Appointment Scheduler]\n  E -->|Reschedule| G[Reschedule Handler]\n  E -->|Cancel| H[Cancellation Handler]\n  E -->|Menu| I[Menu Navigation]\n  F --> J[Healthcare API Integration]\n  G --> J\n  H --> J\n  J --> K[Response Generation]\n  K --> L[ElevenLabs TTS]\n  L --> M[Voice Response to Patient]\n```",
+      challenges: [
+        { "title": "Real-time voice processing", "description": "Achieving sub-second latency for natural conversational flow required optimizing the entire voice pipeline from STT to TTS." },
+        { "title": "Healthcare compliance", "description": "Ensuring HIPAA-compliant data handling while maintaining conversational context across multi-turn interactions." },
+        { "title": "Edge case handling", "description": "Building robust fallback mechanisms for ambiguous requests, accent variations, and complex scheduling scenarios." }
+      ],
+      aiIntegrations: ["LiveKit Voice Pipeline", "ElevenLabs TTS", "OpenAI GPT-4", "n8n Workflow Orchestration", "Custom Intent Recognition"],
+      metrics: [
+        { "label": "Monthly Calls Handled", "value": "10,000+", "description": "Autonomous calls processed monthly" },
+        { "label": "Wait Time Reduction", "value": "95%", "description": "From 45-min average to near-instant" },
+        { "label": "Automation Rate", "value": "87%", "description": "Calls resolved without human intervention" },
+        { "label": "Patient Satisfaction", "value": "4.8/5", "description": "Post-call survey scores" }
+      ],
+      stack: ["LiveKit", "n8n", "ElevenLabs", "OpenAI", "Node.js", "PostgreSQL", "REST APIs"],
+      timeline: [
+        { "date": "Sep 2025", "milestone": "Project kickoff and requirements gathering" },
+        { "date": "Oct 2025", "milestone": "Voice pipeline architecture design" },
+        { "date": "Nov 2025", "milestone": "Core agent development and testing" },
+        { "date": "Dec 2025", "milestone": "Healthcare API integration" },
+        { "date": "Jan 2026", "milestone": "Production deployment and scaling" }
+      ],
+      lessons: [
+        "Voice AI requires fundamentally different UX thinking than text-based chat",
+        "Healthcare domain knowledge is critical for building trust in AI systems",
+        "Iterative testing with real call recordings accelerates quality improvements"
+      ],
+      futureWork: [
+        "Multi-language support for diverse patient populations",
+        "Predictive scheduling based on historical patterns",
+        "Integration with additional healthcare EHR systems"
+      ],
+      published: true,
+      featured: true,
+      order: 0,
+    },
+    {
+      slug: "rcm-automation",
+      title: "RCM Automation Platform",
+      subtitle: "AI-driven Revenue Cycle Management automation for healthcare",
+      problem: "Revenue Cycle Management in healthcare involves complex, manual, error-prone workflows — from medical coding and billing to payment posting and EOB/ERA reconciliation. These processes were slow, expensive, and prone to claim denials.",
+      businessContext: "Healthcare providers lose an estimated 5-10% of revenue due to billing errors and claim denials. The RCM market is worth $300B+ globally, and AI automation represents the next frontier in reducing revenue leakage.",
+      solution: "Built an AI-driven RCM automation platform that streamlines medical coding, automates payment posting, handles denial management, and reconciles EOB/ERA documents through intelligent workflows.",
+      architecture: "```mermaid\nflowchart TD\n  A[Claims Submission] --> B[AI Coding Engine]\n  B --> C[Validation Layer]\n  C --> D{Claim Status}\n  D -->|Approved| E[Payment Posting]\n  D -->|Denied| F[Denial Management AI]\n  F --> G[Appeal Generation]\n  G --> H[Resubmission]\n  E --> I[EOB/ERA Reconciliation]\n  I --> J[Revenue Analytics Dashboard]\n```",
+      challenges: [
+        { "title": "Complex billing rules", "description": "Healthcare billing involves thousands of CPT/ICD codes with payer-specific rules that change frequently." },
+        { "title": "Data integration", "description": "Connecting multiple EHR systems, clearinghouses, and payer portals into a unified automation pipeline." },
+        { "title": "Accuracy requirements", "description": "Medical billing errors can result in compliance violations — the system needed 99%+ accuracy." }
+      ],
+      aiIntegrations: ["AI Medical Coding", "n8n Workflows", "NLP for EOB Parsing", "Denial Prediction ML", "Automated Appeal Generation"],
+      metrics: [
+        { "label": "Manual Effort Reduction", "value": "70%", "description": "Reduction in manual billing tasks" },
+        { "label": "Denial Rate Reduction", "value": "40%", "description": "Fewer claim denials through AI validation" },
+        { "label": "Revenue Recovery", "value": "25%", "description": "Improvement in revenue recovery rate" },
+        { "label": "Processing Speed", "value": "5x", "description": "Faster claim processing end-to-end" }
+      ],
+      stack: ["Python", "n8n", "PostgreSQL", "AI/ML", "REST APIs", "Healthcare APIs"],
+      timeline: [
+        { "date": "Aug 2025", "milestone": "RCM workflow analysis and automation design" },
+        { "date": "Sep 2025", "milestone": "AI coding engine development" },
+        { "date": "Oct 2025", "milestone": "Denial management automation" },
+        { "date": "Nov 2025", "milestone": "EOB/ERA reconciliation system" },
+        { "date": "Dec 2025", "milestone": "Production deployment and optimization" }
+      ],
+      lessons: [
+        "Healthcare billing automation requires deep domain expertise, not just technical skills",
+        "Incremental automation yields faster ROI than big-bang replacements",
+        "Payer-specific rules make one-size-fits-all approaches impossible"
+      ],
+      futureWork: [
+        "Real-time claim status tracking dashboard",
+        "Predictive analytics for denial prevention",
+        "Cross-payer optimization engine"
+      ],
+      published: true,
+      featured: true,
+      order: 1,
+    },
+    {
+      slug: "techspace",
+      title: "TechSpace Community Platform",
+      subtitle: "Full-stack community platform for tech professionals",
+      problem: "Tech communities lacked a unified platform that combined user profiles, community building, product discovery, ambassador programs, tools, and job listings in one cohesive experience.",
+      businessContext: "The developer community platform market is growing rapidly, with platforms like Dev.to and Hashnode proving demand. TechSpace aimed to differentiate by combining community features with product discovery and career tools.",
+      solution: "Developed a comprehensive React-based community platform featuring user profiles, communities, products, ambassador programs, developer tools, and job listings with modern UI/UX.",
+      architecture: "```mermaid\nflowchart TD\n  A[React Frontend] --> B[REST API Layer]\n  B --> C[User Service]\n  B --> D[Community Service]\n  B --> E[Product Service]\n  B --> F[Job Service]\n  C --> G[PostgreSQL]\n  D --> G\n  E --> G\n  F --> G\n  A --> H[Cloudinary CDN]\n```",
+      challenges: [
+        { "title": "Feature complexity", "description": "Building 6+ major feature modules while maintaining a cohesive, intuitive user experience." },
+        { "title": "Performance at scale", "description": "Optimizing feed rendering and community interactions for thousands of concurrent users." },
+        { "title": "Content moderation", "description": "Implementing community guidelines enforcement without hindering user engagement." }
+      ],
+      aiIntegrations: ["Content Recommendation Engine", "Auto-tagging System"],
+      metrics: [
+        { "label": "Feature Modules", "value": "6+", "description": "Major platform features shipped" },
+        { "label": "Delivery", "value": "Ahead of Schedule", "description": "Completed before deadline" },
+        { "label": "UI Components", "value": "50+", "description": "Reusable Ant Design components" },
+        { "label": "Client Rating", "value": "5/5", "description": "Client satisfaction score" }
+      ],
+      stack: ["React.js", "Ant Design", "Node.js", "Cloudinary", "REST APIs", "JavaScript"],
+      timeline: [
+        { "date": "Mar 2024", "milestone": "Product vision and architecture design" },
+        { "date": "Apr 2024", "milestone": "Core platform development" },
+        { "date": "May 2024", "milestone": "Community and product features" },
+        { "date": "Jun 2024", "milestone": "Testing and production deployment" }
+      ],
+      lessons: [
+        "Feature prioritization is critical when building multi-module platforms",
+        "Reusable component libraries dramatically accelerate development",
+        "Clear documentation enables smooth handoffs and future maintenance"
+      ],
+      futureWork: [
+        "AI-powered content recommendations",
+        "Real-time collaboration features",
+        "Mobile native apps"
+      ],
+      published: true,
+      featured: true,
+      order: 2,
+    },
+  ];
+
+  for (const cs of caseStudies) {
+    await prisma.caseStudy.create({ data: cs });
+  }
+
+  // Resume Templates
+  const resumeTemplates = [
+    {
+      name: "Technical Project Manager",
+      slug: "technical-pm",
+      template: "# Rana Muhammad Aleem Akhtar\n## Technical Project Manager\n\n### Summary\nResults-driven Technical Project Manager with expertise in AI automation, healthcare technology, and agile delivery...",
+      keywords: ["Project Management", "Agile", "Scrum", "AI", "Healthcare", "Delivery"],
+    },
+    {
+      name: "AI Team Lead",
+      slug: "ai-lead",
+      template: "# Rana Muhammad Aleem Akhtar\n## AI Team Lead\n\n### Summary\nAI Team Lead specializing in deploying autonomous conversational agents at scale...",
+      keywords: ["AI", "Machine Learning", "Team Leadership", "Automation", "LLM"],
+    },
+    {
+      name: "Solution Architect",
+      slug: "solution-architect",
+      template: "# Rana Muhammad Aleem Akhtar\n## Solution Architect\n\n### Summary\nSolution Architect bridging complex business requirements with scalable technical systems...",
+      keywords: ["Architecture", "System Design", "API", "Microservices", "Cloud"],
+    },
+    {
+      name: "Product Manager",
+      slug: "product-manager",
+      template: "# Rana Muhammad Aleem Akhtar\n## Product Manager\n\n### Summary\nProduct-focused leader driving AI product strategy from ideation to production...",
+      keywords: ["Product", "Strategy", "Roadmap", "User Research", "Analytics"],
+    },
+  ];
+
+  for (const rt of resumeTemplates) {
+    await prisma.resumeTemplate.create({ data: rt });
   }
 
   console.log("✅ Database seeded successfully!");

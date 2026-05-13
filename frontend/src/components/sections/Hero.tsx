@@ -1,14 +1,50 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, ChevronRight, Instagram } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ArrowDown, Github, Linkedin, Mail, ChevronRight, Instagram, FileText, Layers } from "lucide-react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { profileData } from "@/lib/data";
 
 const HeroScene = dynamic(
   () => import("@/components/3d/HeroScene").then((m) => ({ default: m.HeroScene })),
   { ssr: false }
 );
+
+function TypingText({ texts, className }: { texts: string[]; className?: string }) {
+  const [textIndex, setTextIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = texts[textIndex];
+    const timeout = isDeleting ? 30 : 60;
+
+    if (!isDeleting && charIndex === current.length) {
+      setTimeout(() => setIsDeleting(true), 2000);
+      return;
+    }
+    if (isDeleting && charIndex === 0) {
+      setIsDeleting(false);
+      setTextIndex((prev) => (prev + 1) % texts.length);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setCharIndex((prev) => prev + (isDeleting ? -1 : 1));
+    }, timeout);
+
+    return () => clearTimeout(timer);
+  }, [charIndex, isDeleting, textIndex, texts]);
+
+  return (
+    <span className={className}>
+      {texts[textIndex].substring(0, charIndex)}
+      <span className="animate-pulse text-accent">|</span>
+    </span>
+  );
+}
 
 export function Hero() {
   const container = {
@@ -55,12 +91,19 @@ export function Hero() {
             <span className="gradient-text">Aleem Akhtar</span>
           </motion.h1>
 
-          {/* Headline */}
+          {/* Headline with typing effect */}
           <motion.h2
             variants={item}
             className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate mt-5 leading-snug"
           >
-            {profileData.headline}
+            <TypingText
+              texts={[
+                "AI Team Lead & Technical Project Manager",
+                "Building Autonomous AI Agents at Scale",
+                "Healthcare Automation Architect",
+                "Solution Architecture & Technical Delivery",
+              ]}
+            />
           </motion.h2>
 
           {/* Summary */}
@@ -85,12 +128,18 @@ export function Hero() {
                 />
               </span>
             </a>
-            <a href="#projects" className="btn-primary">
-              <span className="relative z-10">View Projects</span>
-            </a>
-            <a href="#contact" className="btn-primary">
-              <span className="relative z-10">Contact Me</span>
-            </a>
+            <Link href="/case-studies" className="btn-primary">
+              <span className="relative z-10 flex items-center gap-2">
+                <Layers size={15} />
+                Case Studies
+              </span>
+            </Link>
+            <Link href="/resume" className="btn-primary">
+              <span className="relative z-10 flex items-center gap-2">
+                <FileText size={15} />
+                Download Resume
+              </span>
+            </Link>
           </motion.div>
 
           {/* Social links */}

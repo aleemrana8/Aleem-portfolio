@@ -35,13 +35,14 @@ export default function AdminLoginPage() {
         {error && <p className="text-red-400 text-sm mb-4 text-center">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-slate text-sm mb-1">Email</label>
+            <label className="block text-slate text-sm mb-1">Username</label>
             <input
-              type="email"
+              type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-3 py-2 bg-navy border border-navy-light rounded text-slate-lightest focus:outline-none focus:border-accent"
               required
+              placeholder="Enter username"
             />
           </div>
           <div>

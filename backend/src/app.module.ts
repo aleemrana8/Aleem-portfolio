@@ -13,6 +13,13 @@ import { TestimonialModule } from './testimonial/testimonial.module';
 import { ContactModule } from './contact/contact.module';
 import { SettingsModule } from './settings/settings.module';
 import { UploadModule } from './upload/upload.module';
+import { AiAssistantModule } from './ai-assistant/ai-assistant.module';
+import { AnalyticsModule } from './analytics/analytics.module';
+import { RecruiterModule } from './recruiter/recruiter.module';
+import { ResumeModule } from './resume/resume.module';
+import { CaseStudyModule } from './case-study/case-study.module';
+import { MetricsModule } from './metrics/metrics.module';
+import { EmbeddingsModule } from './embeddings/embeddings.module';
 
 @Module({
   imports: [
@@ -29,6 +36,13 @@ import { UploadModule } from './upload/upload.module';
     ContactModule,
     SettingsModule,
     UploadModule,
+    AiAssistantModule,
+    AnalyticsModule,
+    RecruiterModule,
+    ResumeModule,
+    CaseStudyModule,
+    MetricsModule,
+    EmbeddingsModule,
   ],
   providers: [
     { provide: APP_GUARD, useClass: ThrottlerGuard },

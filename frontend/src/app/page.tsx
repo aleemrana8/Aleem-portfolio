@@ -5,10 +5,13 @@ import { Experience } from "@/components/sections/Experience";
 import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
 import { Services } from "@/components/sections/Services";
+import { MetricsDashboard } from "@/components/sections/MetricsDashboard";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Writing } from "@/components/sections/Writing";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
+import { AIChatWidget } from "@/components/ai/AIChatWidget";
+import { ArchitectureDiagram } from "@/components/diagrams/ArchitectureDiagram";
 
 export default function Home() {
   return (
@@ -20,10 +23,13 @@ export default function Home() {
       <Projects />
       <Skills />
       <Services />
+      <ArchitectureDiagram />
+      <MetricsDashboard />
       <Testimonials />
       <Writing />
       <Contact />
       <Footer />
+      <AIChatWidget />
     </>
   );
 }
