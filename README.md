@@ -17,6 +17,8 @@
 
 > **A world-class, AI-powered developer portfolio** featuring a RAG chatbot, 3D hero scene, glassmorphism UI, premium email templates, and a full admin CMS — built by **Rana Muhammad Aleem Akhtar**.
 
+**🌐 Live: [aleem-portfolio.vercel.app](https://aleem-portfolio.vercel.app)**
+
 </div>
 
 ---
@@ -302,11 +304,11 @@ Access at `http://localhost:3000/admin/login`
 
 | Role | Company | Period |
 |:---|:---|:---|
-| AI Team Lead / Technical PM | CareCloud MTBC | Jan 2026 — Present |
-| Project Manager | CareCloud MTBC | Aug — Dec 2025 |
+| AI Team Lead / Product Manager | CareCloud MTBC | Jan 2026 — Present |
+| Product Manager | CareCloud MTBC | Aug — Dec 2025 |
 | PM Intern | CareCloud MTBC | May — Aug 2025 |
 | IT Support Manager Intern | PARCO | Jun — Sep 2024 |
-| Freelance Project Manager | Fiverr | Feb 2022 — Present |
+| Freelance Product Manager | Fiverr | Feb 2022 — Present |
 
 ### Skill Groups (6 × 43 Skills)
 
@@ -362,7 +364,7 @@ This project is built as a personal portfolio. All rights reserved by **Rana Muh
 
 **Built with 💚 by Rana Muhammad Aleem Akhtar**
 
-*AI Team Lead · Technical Project Manager · Healthcare AI Specialist*
+*AI Team Lead · Product Manager · Healthcare AI Specialist*
 
 </div>
 | POST | `/api/auth/login` | No | Admin login |

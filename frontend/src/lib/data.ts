@@ -3,9 +3,9 @@
 
 export const profileData = {
   name: "Rana Muhammad Aleem Akhtar",
-  headline: "AI Team Lead & Technical Project Manager",
-  subheadline: "Building AI-driven automation, scalable systems, and product experiences that convert complexity into outcomes.",
-  summary: "I architect intelligent systems at the intersection of AI and healthcare. As a Technical Project Manager and AI Team Lead at CareCloud MTBC, I lead cross-functional teams to design, build, and deploy autonomous AI agents that handle 10K+ calls monthly — transforming how healthcare organizations operate. With a solution-architecture mindset and hands-on engineering roots, I bridge the gap between complex business requirements and scalable technical delivery.",
+  headline: "AI Team Lead & Product Manager",
+  subheadline: "Currently leading AI automation at CareCloud MTBC — deploying autonomous voice agents handling 10K+ calls/month, architecting RAG pipelines, and shipping AI products from zero to production.",
+  summary: "I architect intelligent systems at the intersection of AI and healthcare. As a Product Manager and AI Team Lead at CareCloud MTBC, I lead cross-functional teams to design, build, and deploy autonomous AI agents that handle 10K+ calls monthly — transforming how healthcare organizations operate. With a solution-architecture mindset and hands-on engineering roots, I bridge the gap between complex business requirements and scalable technical delivery.",
   email: "raleem811811@gmail.com",
   phone: "+923151664843",
   location: "Islamabad, Pakistan",
@@ -19,7 +19,7 @@ export const profileData = {
 export const experienceData = [
   {
     id: "1",
-    title: "AI Team Lead / Technical Project Manager",
+    title: "AI Team Lead / Product Manager",
     company: "CareCloud MTBC",
     location: "Islamabad, Pakistan",
     startDate: "Jan 2026",
@@ -36,7 +36,7 @@ export const experienceData = [
   },
   {
     id: "2",
-    title: "Project Manager",
+    title: "Product Manager",
     company: "CareCloud MTBC",
     location: "Islamabad, Pakistan",
     startDate: "Aug 2025",
@@ -53,7 +53,7 @@ export const experienceData = [
   },
   {
     id: "3",
-    title: "Project Manager Intern",
+    title: "Product Manager Intern",
     company: "CareCloud MTBC",
     location: "Islamabad, Pakistan",
     startDate: "May 2025",
@@ -85,7 +85,7 @@ export const experienceData = [
   },
   {
     id: "5",
-    title: "Freelance Project Manager",
+    title: "Freelance Product Manager",
     company: "Fiverr",
     location: "Remote",
     startDate: "Feb 2022",
@@ -149,7 +149,7 @@ export const projectsData = [
     tagline: "AI-driven Revenue Cycle Management automation for healthcare",
     problem: "Revenue Cycle Management involves complex, manual, error-prone workflows — from medical coding to payment posting and EOB/ERA reconciliation.",
     solution: "Built an AI-driven RCM automation platform that streamlines medical coding, automates payment posting, handles denial management, and reconciles EOB/ERA documents.",
-    role: "AI RCM Project Manager — Led end-to-end development and delivery, designed automation workflows.",
+    role: "AI RCM Product Manager — Led end-to-end development and delivery, designed automation workflows.",
     outcome: "Reduced manual effort across healthcare billing operations, minimized coding errors, and improved revenue recovery rates.",
     stack: ["AI/ML", "n8n", "Python", "REST APIs", "Healthcare APIs", "PostgreSQL"],
     featured: true,

@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Aleem Akhtar — AI Team Lead & Technical Project Manager",
+  title: "Aleem Akhtar — AI Team Lead & Product Manager",
   description:
-    "Portfolio of Rana Muhammad Aleem Akhtar. AI Team Lead and Technical Project Manager specializing in healthcare automation, scalable AI agents, and technical delivery leadership.",
+    "Portfolio of Rana Muhammad Aleem Akhtar. AI Team Lead and Product Manager specializing in healthcare automation, scalable AI agents, and technical delivery leadership.",
   keywords: [
     "AI Team Lead",
-    "Technical Project Manager",
+    "Product Manager",
     "Healthcare Automation",
     "AI Agents",
     "Solution Architecture",
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Rana Muhammad Aleem Akhtar" }],
   openGraph: {
-    title: "Aleem Akhtar — AI Team Lead & Technical Project Manager",
+    title: "Aleem Akhtar — AI Team Lead & Product Manager",
     description:
       "Building AI-driven automation, scalable systems, and product experiences that convert complexity into outcomes.",
     type: "website",
@@ -25,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aleem Akhtar — AI Team Lead & Technical Project Manager",
+    title: "Aleem Akhtar — AI Team Lead & Product Manager",
     description:
       "Building AI-driven automation, scalable systems, and product experiences that convert complexity into outcomes.",
   },
@@ -86,6 +88,8 @@ export default function RootLayout({
 
         <main className="relative z-10">{children}</main>
         </Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

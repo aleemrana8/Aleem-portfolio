@@ -1,10 +1,13 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  directUrl  = env("DIRECT_DATABASE_URL")
+  extensions = [vector]
 }
 
 model User {
@@ -195,14 +198,17 @@ model ChatMessage {
 }
 
 model AIEmbedding {
-  id        String   @id @default(cuid())
+  id        String                      @id @default(cuid())
   source    String   // resume | project | blog | skill | experience | service
   sourceId  String?
   content   String   @db.Text
-  embedding Float[]  // vector stored as float array
+  embedding Unsupported("vector(1536)")?
   metadata  Json?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([source])
+  @@index([sourceId])
 }
 
 // ─── Recruiter Intelligence ─────────────────────────────
@@ -227,7 +233,7 @@ model RecruiterLead {
 
 model ResumeTemplate {
   id        String   @id @default(cuid())
-  name      String   // Technical PM | AI Lead | Solution Architect
+  name      String   // Product Manager | AI Lead | Solution Architect
   slug      String   @unique
   template  String   @db.Text // markdown template
   keywords  String[] @default([])

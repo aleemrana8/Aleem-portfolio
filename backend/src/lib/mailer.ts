@@ -46,7 +46,7 @@ function baseLayout(content: string) {
         <tr>
           <td style="padding:24px 40px;border-top:1px solid rgba(100,255,218,0.08);text-align:center;">
             <p style="margin:0;font-size:12px;color:${TEXT_DIM};">
-              AI Team Lead &bull; Technical Project Manager &bull; Healthcare AI Specialist
+              AI Team Lead &bull; Product Manager &bull; Healthcare AI Specialist
             </p>
             <p style="margin:8px 0 0;font-size:11px;color:${TEXT_DIM};">
               <a href="mailto:raleem811811@gmail.com" style="color:${ACCENT};text-decoration:none;">raleem811811@gmail.com</a>
@@ -154,7 +154,7 @@ export function buildSenderEmail(data: { name: string; email: string; subject?: 
     <p style="margin:28px 0 0;font-size:14px;color:${TEXT_LIGHT};">
       Best regards,<br/>
       <strong style="color:${ACCENT};">Rana Muhammad Aleem Akhtar</strong><br/>
-      <span style="font-size:12px;color:${TEXT_DIM};">AI Team Lead &amp; Technical Project Manager</span>
+      <span style="font-size:12px;color:${TEXT_DIM};">AI Team Lead &amp; Product Manager</span>
     </p>
   `);
 

@@ -26,9 +26,9 @@ async function main() {
       data: {
         userId: user.id,
         name: "Rana Muhammad Aleem Akhtar",
-        headline: "AI Team Lead & Technical Project Manager",
+        headline: "AI Team Lead & Product Manager",
         subheadline: "Building AI-driven automation, scalable systems, and product experiences that convert complexity into outcomes.",
-        summary: "I architect intelligent systems at the intersection of AI and healthcare. As a Technical Project Manager and AI Team Lead at CareCloud MTBC, I lead cross-functional teams to design, build, and deploy autonomous AI agents that handle 10K+ calls monthly — transforming how healthcare organizations operate. With a solution-architecture mindset and hands-on engineering roots, I bridge the gap between complex business requirements and scalable technical delivery.",
+        summary: "I architect intelligent systems at the intersection of AI and healthcare. As a Product Manager and AI Team Lead at CareCloud MTBC, I lead cross-functional teams to design, build, and deploy autonomous AI agents that handle 10K+ calls monthly — transforming how healthcare organizations operate. With a solution-architecture mindset and hands-on engineering roots, I bridge the gap between complex business requirements and scalable technical delivery.",
         email: "raleem811811@gmail.com",
         phone: "+923151664843",
         location: "Islamabad, Pakistan",
@@ -37,8 +37,8 @@ async function main() {
         githubUrl: "https://github.com/aleemrana8",
         linkedinUrl: "https://linkedin.com/in/aleem-akhtar",
         instagramUrl: "https://www.instagram.com/aleemakhtar811",
-        metaTitle: "Aleem Akhtar — AI Team Lead & Technical Project Manager",
-        metaDesc: "Portfolio of Rana Muhammad Aleem Akhtar. AI Team Lead and Technical Project Manager specializing in healthcare automation, scalable AI agents, and technical delivery leadership.",
+        metaTitle: "Aleem Akhtar — AI Team Lead & Product Manager",
+        metaDesc: "Portfolio of Rana Muhammad Aleem Akhtar. AI Team Lead and Product Manager specializing in healthcare automation, scalable AI agents, and technical delivery leadership.",
       },
     });
   }
@@ -46,7 +46,7 @@ async function main() {
   // Experiences
   const experiences = [
     {
-      title: "AI Team Lead / Technical Project Manager",
+      title: "AI Team Lead / Product Manager",
       company: "CareCloud MTBC",
       location: "Islamabad, Pakistan",
       startDate: "Jan 2026",
@@ -64,7 +64,7 @@ async function main() {
       featured: true,
     },
     {
-      title: "Project Manager",
+      title: "Product Manager",
       company: "CareCloud MTBC",
       location: "Islamabad, Pakistan",
       startDate: "Aug 2025",
@@ -82,7 +82,7 @@ async function main() {
       featured: true,
     },
     {
-      title: "Project Manager Intern",
+      title: "Product Manager Intern",
       company: "CareCloud MTBC",
       location: "Islamabad, Pakistan",
       startDate: "May 2025",
@@ -116,7 +116,7 @@ async function main() {
       featured: false,
     },
     {
-      title: "Freelance Project Manager",
+      title: "Freelance Product Manager",
       company: "Fiverr",
       location: "Remote",
       startDate: "Feb 2022",
@@ -159,7 +159,7 @@ async function main() {
       tagline: "AI-driven Revenue Cycle Management automation for healthcare",
       problem: "Revenue Cycle Management in healthcare involves complex, manual, error-prone workflows — from medical coding and billing to payment posting and EOB/ERA reconciliation. These processes were slow, expensive, and prone to claim denials and revenue leakage.",
       solution: "Built an AI-driven RCM automation platform that streamlines medical coding, automates payment posting, handles denial management, and reconciles EOB/ERA documents. Implemented intelligent workflows to minimize manual intervention and maximize revenue recovery.",
-      role: "AI RCM Project Manager — Led end-to-end development and delivery, designed automation workflows, partnered with engineering teams, and ensured alignment between technical implementation and business outcomes.",
+      role: "AI RCM Product Manager — Led end-to-end development and delivery, designed automation workflows, partnered with engineering teams, and ensured alignment between technical implementation and business outcomes.",
       outcome: "Reduced manual effort across healthcare billing operations, minimized coding errors, improved revenue recovery rates, and established a scalable automation foundation for ongoing RCM optimization.",
       stack: ["AI/ML", "n8n", "Python", "REST APIs", "Healthcare APIs", "PostgreSQL"],
       featured: true,
@@ -574,9 +574,9 @@ async function main() {
   // Resume Templates
   const resumeTemplates = [
     {
-      name: "Technical Project Manager",
+      name: "Product Manager",
       slug: "technical-pm",
-      template: "# Rana Muhammad Aleem Akhtar\n## Technical Project Manager\n\n### Summary\nResults-driven Technical Project Manager with expertise in AI automation, healthcare technology, and agile delivery...",
+      template: "# Rana Muhammad Aleem Akhtar\n## Product Manager\n\n### Summary\nResults-driven Product Manager with expertise in AI automation, healthcare technology, and agile delivery...",
       keywords: ["Project Management", "Agile", "Scrum", "AI", "Healthcare", "Delivery"],
     },
     {

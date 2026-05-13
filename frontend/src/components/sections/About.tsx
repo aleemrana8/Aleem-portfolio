@@ -55,7 +55,7 @@ export function About() {
           <FadeIn delay={0.2} className="md:col-span-2">
             <div className="space-y-5 text-slate leading-relaxed text-[15px]">
               <p>
-                I&apos;m a <span className="text-slate-lightest font-medium">Technical Project Manager</span> and{" "}
+                I&apos;m a <span className="text-slate-lightest font-medium">Product Manager</span> and{" "}
                 <span className="text-slate-lightest font-medium">AI Team Lead</span> with a{" "}
                 <span className="text-accent">solution-architecture mindset</span>, specializing in AI-driven
                 automation solutions for healthcare. I combine hands-on software engineering expertise with

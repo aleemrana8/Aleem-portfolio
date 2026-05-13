@@ -90,17 +90,25 @@ export function Hero() {
             <span className="gradient-text">Aleem Akhtar</span>
           </motion.h1>
 
+          {/* Static title */}
+          <motion.p
+            variants={item}
+            className="text-accent font-mono text-sm sm:text-base mt-4 tracking-wider"
+          >
+            AI Team Lead &nbsp;/&nbsp; Product Manager
+          </motion.p>
+
           {/* Headline with typing effect */}
           <motion.h2
             variants={item}
-            className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate mt-5 leading-snug"
+            className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate mt-4 leading-snug"
           >
             <TypingText
               texts={[
-                "AI Team Lead & Technical Project Manager",
-                "Building Autonomous AI Agents at Scale",
-                "Healthcare Automation Architect",
-                "Solution Architecture & Technical Delivery",
+                "Deploying Autonomous AI Agents at Scale",
+                "Leading Healthcare Automation at CareCloud",
+                "Architecting Voice AI & RAG Pipelines",
+                "Shipping AI Products from 0 → Production",
               ]}
             />
           </motion.h2>
