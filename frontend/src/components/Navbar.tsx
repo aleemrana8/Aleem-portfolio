@@ -46,18 +46,21 @@ export function Navbar() {
       >
         <nav className="max-w-7xl mx-auto px-6 lg:px-12 h-[4.5rem] flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="relative group flex items-center gap-2.5" aria-label="Home">
-            <Image
-              src="/images/logo.png"
-              alt="Aleem Portfolio"
-              width={140}
-              height={40}
-              className="h-9 w-auto object-contain group-hover:brightness-125 transition-all duration-500"
-              priority
-            />
-            <span className="text-sm font-semibold text-slate-lightest group-hover:text-accent transition-colors duration-500 hidden sm:inline">
-              Aleem <span className="text-accent">Portfolio</span>
-            </span>
+          <a href="#" className="relative group flex items-center gap-3" aria-label="Home">
+            <div className="relative">
+              <Image
+                src="/images/logo.png"
+                alt="Aleem Portfolio"
+                width={140}
+                height={40}
+                className="h-10 w-auto object-contain group-hover:brightness-125 group-hover:drop-shadow-[0_0_8px_rgba(100,255,218,0.3)] transition-all duration-500"
+                priority
+              />
+            </div>
+            <div className="hidden sm:flex flex-col leading-none">
+              <span className="text-[15px] font-bold tracking-wide gradient-text">ALEEM</span>
+              <span className="text-[9px] font-semibold text-accent/70 tracking-[0.25em] uppercase">Portfolio</span>
+            </div>
           </a>
 
           {/* Desktop Nav */}

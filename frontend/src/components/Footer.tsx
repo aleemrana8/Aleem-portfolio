@@ -13,18 +13,19 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand */}
-          <div className="text-center md:text-left flex flex-col items-center md:items-start gap-2">
-            <div className="flex items-center gap-2">
+          <div className="text-center md:text-left flex flex-col items-center md:items-start gap-3">
+            <div className="flex items-center gap-2.5 group">
               <Image
                 src="/images/logo.png"
                 alt="Aleem Portfolio"
                 width={100}
                 height={28}
-                className="h-7 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                className="h-8 w-auto object-contain opacity-60 group-hover:opacity-100 group-hover:drop-shadow-[0_0_6px_rgba(100,255,218,0.25)] transition-all duration-500"
               />
-              <span className="text-xs font-semibold text-slate-lightest/60 hover:text-accent/80 transition-colors duration-300">
-                Aleem <span className="text-accent/60">Portfolio</span>
-              </span>
+              <div className="flex flex-col leading-none">
+                <span className="text-sm font-bold tracking-wide gradient-text">ALEEM</span>
+                <span className="text-[8px] font-semibold text-accent/50 tracking-[0.25em] uppercase">Portfolio</span>
+              </div>
             </div>
             <p className="text-[11px] text-slate/30 font-mono">
               Designed & Built by{" "}
