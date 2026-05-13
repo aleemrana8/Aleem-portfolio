@@ -45,14 +45,6 @@ export function Hero() {
           animate="show"
           className="max-w-3xl"
         >
-          {/* Greeting */}
-          <motion.p
-            variants={item}
-            className="text-accent font-mono text-sm md:text-base mb-6 tracking-wider"
-          >
-            Hi, my name is
-          </motion.p>
-
           {/* Name - Editorial style */}
           <motion.h1
             variants={item}

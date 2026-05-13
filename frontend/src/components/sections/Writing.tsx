@@ -7,14 +7,14 @@ import { motion } from "framer-motion";
 
 export function Writing() {
   return (
-    <section id="writing" className="py-24 md:py-32 relative">
+    <section id="blog" className="py-24 md:py-32 relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <FadeIn>
-          <p className="text-accent font-mono text-sm mb-2 tracking-wider">Thinking Out Loud</p>
-          <h2 className="section-heading">Writing & Insights</h2>
+          <p className="text-accent font-mono text-sm mb-2 tracking-wider">Latest Articles</p>
+          <h2 className="section-heading">Blog & Insights</h2>
           <p className="text-slate max-w-2xl mt-4 leading-relaxed">
-            Thoughts on AI automation, technical leadership, healthcare workflows,
-            and the evolving landscape of intelligent systems.
+            Exploring AI automation, technical leadership, healthcare innovation,
+            and lessons from building intelligent systems at scale.
           </p>
         </FadeIn>
 

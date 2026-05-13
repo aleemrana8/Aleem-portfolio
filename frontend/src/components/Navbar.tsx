@@ -47,7 +47,7 @@ export function Navbar() {
           {/* Logo */}
           <a href="#" className="relative group" aria-label="Home">
             <span className="text-xl font-bold text-slate-lightest group-hover:text-accent transition-colors duration-500">
-              A<span className="text-accent">.</span>A
+              Aleem<span className="text-accent"> Portfolio</span>
             </span>
           </a>
 
@@ -66,7 +66,6 @@ export function Navbar() {
                     : "text-slate/80 hover:text-accent hover:bg-white/[0.02]"
                 }`}
               >
-                <span className="text-accent/50 text-[11px] mr-1.5">0{i + 1}.</span>
                 {link.label}
               </motion.a>
             ))}
@@ -121,7 +120,6 @@ export function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className="text-lg font-mono text-slate-lightest hover:text-accent transition-colors duration-300"
                 >
-                  <span className="text-accent/50 text-sm mr-2">0{i + 1}.</span>
                   {link.label}
                 </a>
               ))}
