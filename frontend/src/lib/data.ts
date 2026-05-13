@@ -212,7 +212,7 @@ export const blogPostsData = [
 ];
 
 export const statsData = [
-  { label: "Years Experience", value: "4+" },
+  { label: "Projects Delivered", value: "10+" },
   { label: "AI Agents Deployed", value: "50+" },
   { label: "Monthly AI Calls", value: "10K+" },
   { label: "Team Members Led", value: "15+" },
