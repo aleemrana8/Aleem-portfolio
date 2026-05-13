@@ -23,6 +23,10 @@ export interface ProjectData {
   image?: string;
   githubUrl?: string;
   liveUrl?: string;
+  architectureFlow?: {
+    nodes: { id: string; label: string; icon: string; x: number; y: number }[];
+    connections: { from: string; to: string }[];
+  };
 }
 
 interface ProjectCardProps {

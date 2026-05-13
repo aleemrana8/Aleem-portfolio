@@ -3,13 +3,14 @@
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/MotionWrappers";
 import { skillGroupsData } from "@/lib/data";
-import { Crown, Brain, Code, BarChart3, Settings } from "lucide-react";
+import { Crown, Brain, Code, Server, Cloud, Settings } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
   crown: <Crown size={20} strokeWidth={1.5} />,
   brain: <Brain size={20} strokeWidth={1.5} />,
   code: <Code size={20} strokeWidth={1.5} />,
-  chart: <BarChart3 size={20} strokeWidth={1.5} />,
+  server: <Server size={20} strokeWidth={1.5} />,
+  cloud: <Cloud size={20} strokeWidth={1.5} />,
   settings: <Settings size={20} strokeWidth={1.5} />,
 };
 

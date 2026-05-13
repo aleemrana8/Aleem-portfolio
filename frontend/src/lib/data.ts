@@ -114,6 +114,33 @@ export const projectsData = [
     stack: ["LiveKit", "n8n", "ElevenLabs", "REST APIs", "Node.js", "AI/ML"],
     featured: true,
     image: "/images/projects/front-desk-agent.png",
+    architectureFlow: {
+      nodes: [
+        { id: "call", label: "Incoming Call", icon: "phone", x: 50, y: 50 },
+        { id: "voice", label: "Voice Pipeline", icon: "audio", x: 220, y: 50 },
+        { id: "stt", label: "Speech-to-Text", icon: "filetext", x: 390, y: 50 },
+        { id: "intent", label: "AI Intent", icon: "brain", x: 560, y: 50 },
+        { id: "schedule", label: "Scheduler", icon: "calendar", x: 470, y: 180 },
+        { id: "cancel", label: "Cancel", icon: "xcircle", x: 560, y: 270 },
+        { id: "reschedule", label: "Reschedule", icon: "refresh", x: 650, y: 180 },
+        { id: "api", label: "Healthcare API", icon: "server", x: 560, y: 370 },
+        { id: "response", label: "Response Gen", icon: "message", x: 390, y: 370 },
+        { id: "voiceOut", label: "Voice Response", icon: "volume", x: 220, y: 370 },
+      ],
+      connections: [
+        { from: "call", to: "voice" },
+        { from: "voice", to: "stt" },
+        { from: "stt", to: "intent" },
+        { from: "intent", to: "schedule" },
+        { from: "intent", to: "cancel" },
+        { from: "intent", to: "reschedule" },
+        { from: "schedule", to: "api" },
+        { from: "cancel", to: "api" },
+        { from: "reschedule", to: "api" },
+        { from: "api", to: "response" },
+        { from: "response", to: "voiceOut" },
+      ],
+    },
   },
   {
     id: "2",
@@ -152,6 +179,7 @@ export const projectsData = [
     outcome: "Delivered a production SaaS platform deployed on Vercel/Render with CI/CD pipeline, featuring 12 AI hiring tools, a 6-tier RBAC admin panel, real-time Socket.io dashboards, and multi-provider WhatsApp automation.",
     stack: ["React", "TypeScript", "Vite", "Three.js", "Express.js", "PostgreSQL", "Prisma", "MongoDB", "Redis", "OpenAI GPT-4o", "Google Gemini", "Socket.io", "Docker", "Capacitor"],
     featured: true,
+    image: "/images/projects/techlution-ai.png",
     githubUrl: "https://github.com/aleemrana8/techlutionAI",
     liveUrl: "https://techlution-ai.vercel.app/",
   },
@@ -166,6 +194,7 @@ export const projectsData = [
     outcome: "Delivered a complete job hunting automation platform with live dashboard, color-coded AI scoring, one-click cover letter generation, application pipeline tracking, and CI/CD deployment — eliminating manual job search entirely.",
     stack: ["React", "Vite", "Node.js", "Express", "FastAPI", "Python", "OpenAI GPT-4o", "n8n", "SQLite", "PostgreSQL", "Celery", "Docker"],
     featured: true,
+    image: "/images/projects/ai-job-assistant.png",
     githubUrl: "https://github.com/aleemrana8/Ai-job-assistant-",
   },
   {
@@ -179,6 +208,7 @@ export const projectsData = [
     outcome: "Delivered a complete AI-native healthcare platform with real-time voice calls via WebRTC, SIP telephony integration, concurrent-safe appointment booking with slot locking, dual dashboard system, and full audit trail — handling the entire patient interaction lifecycle autonomously.",
     stack: ["Python", "FastAPI", "Next.js 15", "React 19", "TypeScript", "MongoDB", "Redis", "OpenAI GPT-4o", "LiveKit", "Deepgram", "Cartesia", "Docker", "WebRTC"],
     featured: true,
+    image: "/images/projects/voice-agent.png",
     githubUrl: "https://github.com/aleemrana8/Aleem-Voice-Agent",
   },
   {
@@ -192,6 +222,7 @@ export const projectsData = [
     outcome: "Delivered a production-ready platform with clean server-side routing, responsive design, comprehensive API (bookings, reviews, newsletter, contact), security features (Helmet, rate limiting, parameterized queries), and a fully automated CI/CD pipeline with Docker and GitHub Actions.",
     stack: ["Node.js", "Express", "SQLite", "EJS", "GSAP", "Docker", "GitHub Actions", "Helmet", "Nginx"],
     featured: true,
+    image: "/images/projects/family-golf.png",
     githubUrl: "https://github.com/aleemrana8/Family-Golf",
   },
 ];
@@ -200,27 +231,32 @@ export const skillGroupsData = [
   {
     name: "Leadership & Delivery",
     icon: "crown",
-    skills: ["Solution Architecture", "Agile / Scrum", "Sprint Planning", "Risk Management", "Jira & Trello", "Decision Making", "CRM Tools"],
+    skills: ["Solution Architecture", "Agile / Scrum", "Sprint Planning", "Risk Management", "Jira & Trello", "Stakeholder Management", "OKRs & KPIs"],
   },
   {
     name: "AI & Automation",
     icon: "brain",
-    skills: ["n8n Workflows", "LiveKit", "ElevenLabs", "RAG Pipelines", "LLM Integration", "AI Agents"],
+    skills: ["n8n Workflows", "LiveKit", "ElevenLabs", "RAG Pipelines", "LLM Integration", "AI Agents", "OpenAI GPT-4o", "Prompt Engineering"],
   },
   {
-    name: "Frontend & Backend",
+    name: "Frontend Development",
     icon: "code",
-    skills: ["JavaScript", "React.js", "React Native", "REST APIs", "Node.js", "TypeScript"],
+    skills: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Three.js", "Framer Motion", "Vite"],
   },
   {
-    name: "QA & Analytics",
-    icon: "chart",
-    skills: ["Selenium", "Cypress", "Excel Analytics", "Statistical Analysis", "Critical Thinking"],
+    name: "Backend & Data",
+    icon: "server",
+    skills: ["Node.js", "Express.js", "FastAPI", "Python", "PostgreSQL", "MongoDB", "Redis", "Prisma", "REST APIs"],
+  },
+  {
+    name: "DevOps & Cloud",
+    icon: "cloud",
+    skills: ["Docker", "GitHub Actions", "CI/CD Pipelines", "Vercel", "Nginx", "WebRTC", "Socket.io"],
   },
   {
     name: "Tools & Platforms",
     icon: "settings",
-    skills: ["IT Project Mgmt", "Network Setup", "Help Desk", "Cybersecurity", "Digital Marketing", "Content Creation"],
+    skills: ["Git & GitHub", "Figma", "Postman", "Digital Marketing", "Technical Documentation", "CRM Systems"],
   },
 ];
 
@@ -280,7 +316,6 @@ export const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
-  { label: "Metrics", href: "#metrics" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
