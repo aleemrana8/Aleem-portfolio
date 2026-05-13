@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, ChevronRight, Download } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, ChevronRight } from "lucide-react";
 import dynamic from "next/dynamic";
 import { profileData } from "@/lib/data";
 
@@ -87,17 +87,6 @@ export function Hero() {
             </a>
             <a href="#projects" className="btn-primary">
               <span className="relative z-10">View Projects</span>
-            </a>
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                <Download size={14} />
-                Resume
-              </span>
             </a>
             <a href="#contact" className="btn-primary">
               <span className="relative z-10">Contact Me</span>

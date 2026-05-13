@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/data";
 import Image from "next/image";
 
@@ -78,20 +78,6 @@ export function Navbar() {
                 {link.label}
               </motion.a>
             ))}
-            <motion.a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-              className="btn-primary ml-5 text-xs py-2 px-4"
-            >
-              <span className="relative z-10 flex items-center gap-1.5">
-                <Download size={13} />
-                Resume
-              </span>
-            </motion.a>
           </div>
 
           {/* Mobile toggle */}
@@ -132,17 +118,6 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary mt-6"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  <Download size={16} />
-                  Resume
-                </span>
-              </a>
             </motion.nav>
           </motion.div>
         )}
