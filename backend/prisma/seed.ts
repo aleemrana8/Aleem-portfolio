@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcryptjs";
+import * as bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -8,14 +8,14 @@ async function main() {
 
   // Admin user
   const hashedPassword = await bcrypt.hash("admin123456", 12);
-  await prisma.user.upsert({
+  const user = await prisma.user.upsert({
     where: { email: "raleem811811@gmail.com" },
     update: {},
     create: {
       email: "raleem811811@gmail.com",
       password: hashedPassword,
       name: "Rana Muhammad Aleem Akhtar",
-      role: "admin",
+      role: "ADMIN",
     },
   });
 
@@ -24,6 +24,7 @@ async function main() {
   if (!profile) {
     await prisma.profile.create({
       data: {
+        userId: user.id,
         name: "Rana Muhammad Aleem Akhtar",
         headline: "AI Team Lead & Technical Project Manager",
         subheadline: "Building AI-driven automation, scalable systems, and product experiences that convert complexity into outcomes.",
@@ -35,12 +36,9 @@ async function main() {
         resumeUrl: "/resume.pdf",
         githubUrl: "https://github.com/aleemrana8",
         linkedinUrl: "https://linkedin.com/in/aleem-akhtar",
+        instagramUrl: "https://www.instagram.com/aleemakhtar811",
         metaTitle: "Aleem Akhtar — AI Team Lead & Technical Project Manager",
         metaDesc: "Portfolio of Rana Muhammad Aleem Akhtar. AI Team Lead and Technical Project Manager specializing in healthcare automation, scalable AI agents, and technical delivery leadership.",
-        heroCtaLabel1: "View Experience",
-        heroCtaLabel2: "View Projects",
-        heroCtaLabel3: "Download Resume",
-        heroCtaLabel4: "Contact Me",
       },
     });
   }
@@ -337,6 +335,56 @@ async function main() {
       maintenanceMode: false,
     },
   });
+
+  // Categories
+  const categories = [
+    { name: "AI & Automation", slug: "ai-automation" },
+    { name: "Leadership", slug: "leadership" },
+    { name: "Healthcare", slug: "healthcare" },
+    { name: "Engineering", slug: "engineering" },
+  ];
+  for (const cat of categories) {
+    await prisma.category.create({ data: cat });
+  }
+
+  // Testimonials
+  const testimonials = [
+    {
+      name: "Dr. Sarah Johnson",
+      role: "Chief Medical Officer",
+      company: "HealthFirst Clinic",
+      content: "Aleem's Front Desk AI Agent transformed our patient scheduling. We went from 45-minute average wait times to near-instant appointment handling. His technical vision and execution are exceptional.",
+      featured: true,
+      order: 0,
+    },
+    {
+      name: "Ahmed Hassan",
+      role: "VP of Engineering",
+      company: "CareCloud MTBC",
+      content: "Working with Aleem has been transformative for our AI initiatives. He bridges the gap between complex technical architectures and business outcomes with remarkable clarity and precision.",
+      featured: true,
+      order: 1,
+    },
+    {
+      name: "Maria Chen",
+      role: "Product Director",
+      company: "TechSpace Inc.",
+      content: "Aleem delivered our community platform ahead of schedule with exceptional quality. His ability to translate product vision into scalable technical architecture is rare and invaluable.",
+      featured: true,
+      order: 2,
+    },
+    {
+      name: "Usman Khalid",
+      role: "Senior AI Engineer",
+      company: "CareCloud MTBC",
+      content: "As a team lead, Aleem creates an environment where engineers thrive. He understands the technical depth of AI systems while keeping the team focused on delivering real impact.",
+      featured: true,
+      order: 3,
+    },
+  ];
+  for (const t of testimonials) {
+    await prisma.testimonial.create({ data: t });
+  }
 
   console.log("✅ Database seeded successfully!");
 }

@@ -36,6 +36,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { Providers } from "@/providers/query-provider";
+
 export default function RootLayout({
   children,
 }: {
@@ -44,6 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="relative">
+        <Providers>
         <div className="noise-overlay" />
         <MouseSpotlight />
 
@@ -82,6 +85,7 @@ export default function RootLayout({
         />
 
         <main className="relative z-10">{children}</main>
+        </Providers>
       </body>
     </html>
   );

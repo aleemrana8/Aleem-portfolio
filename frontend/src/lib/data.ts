@@ -224,6 +224,66 @@ export const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
-  { label: "Insights", href: "#blog" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
+];
+
+export const testimonialsData = [
+  {
+    name: "Dr. Sarah Johnson",
+    role: "Chief Medical Officer",
+    company: "HealthFirst Clinic",
+    content: "Aleem's Front Desk AI Agent transformed our patient scheduling. We went from 45-minute average wait times to near-instant appointment handling. His technical vision and execution are exceptional.",
+  },
+  {
+    name: "Ahmed Hassan",
+    role: "VP of Engineering",
+    company: "CareCloud MTBC",
+    content: "Working with Aleem has been transformative for our AI initiatives. He bridges the gap between complex technical architectures and business outcomes with remarkable clarity and precision.",
+  },
+  {
+    name: "Maria Chen",
+    role: "Product Director",
+    company: "TechSpace Inc.",
+    content: "Aleem delivered our community platform ahead of schedule with exceptional quality. His ability to translate product vision into scalable technical architecture is rare and invaluable.",
+  },
+  {
+    name: "Usman Khalid",
+    role: "Senior AI Engineer",
+    company: "CareCloud MTBC",
+    content: "As a team lead, Aleem creates an environment where engineers thrive. He understands the technical depth of AI systems while keeping the team focused on delivering real impact.",
+  },
+];
+
+export const servicesData = [
+  {
+    title: "AI Agent Development",
+    description: "Design and deploy autonomous conversational AI agents for healthcare and enterprise operations, handling 10K+ interactions monthly.",
+    icon: "brain",
+  },
+  {
+    title: "Technical Project Management",
+    description: "End-to-end delivery leadership using Agile/Scrum, sprint planning, risk management, and KPI-driven execution for AI and software projects.",
+    icon: "target",
+  },
+  {
+    title: "Solution Architecture",
+    description: "Architect scalable systems that bridge complex business requirements with modern technical stacks — from AI pipelines to full-stack platforms.",
+    icon: "layers",
+  },
+  {
+    title: "Workflow Automation",
+    description: "Build intelligent automation workflows using n8n, AI models, and API integrations to eliminate manual processes and boost operational efficiency.",
+    icon: "zap",
+  },
+  {
+    title: "Healthcare Tech Consulting",
+    description: "Domain expertise in RCM automation, appointment scheduling, medical coding, and AI-driven healthcare operations optimization.",
+    icon: "heart",
+  },
+  {
+    title: "Team Leadership & Mentoring",
+    description: "Lead cross-functional engineering teams, establish delivery frameworks, and mentor engineers in AI, automation, and technical best practices.",
+    icon: "users",
+  },
 ];
