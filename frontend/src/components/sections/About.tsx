@@ -23,7 +23,7 @@ export function About() {
               <div className="relative group">
                 <div className="relative w-full aspect-square max-w-[280px] mx-auto rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/profile.jpg"
+                    src="/images/profile.png"
                     alt={profileData.name}
                     width={280}
                     height={280}

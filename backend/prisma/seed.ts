@@ -32,7 +32,7 @@ async function main() {
         email: "raleem811811@gmail.com",
         phone: "+923151664843",
         location: "Islamabad, Pakistan",
-        avatarUrl: "/images/profile.jpg",
+        avatarUrl: "/images/profile.png",
         resumeUrl: "/resume.pdf",
         githubUrl: "https://github.com/aleemrana8",
         linkedinUrl: "https://linkedin.com/in/aleem-akhtar",
