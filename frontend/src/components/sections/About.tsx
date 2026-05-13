@@ -22,13 +22,12 @@ export function About() {
               {/* Profile Image */}
               <div className="relative group">
                 <div className="relative w-full aspect-square max-w-[280px] mx-auto rounded-2xl overflow-hidden">
-                  <div className="absolute inset-0 bg-accent/20 group-hover:bg-transparent transition-all duration-700 z-10 rounded-2xl" />
                   <Image
                     src="/images/profile.jpg"
                     alt={profileData.name}
                     width={280}
                     height={280}
-                    className="w-full h-full object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                    className="w-full h-full object-cover rounded-2xl transition-all duration-700 group-hover:scale-105"
                     priority
                   />
                   <div className="absolute inset-0 border-2 border-accent/20 rounded-2xl translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500 -z-10" />
