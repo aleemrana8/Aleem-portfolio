@@ -212,9 +212,11 @@ export const blogPostsData = [
 
 export const statsData = [
   { label: "Years Experience", value: "4+" },
-  { label: "Projects Delivered", value: "15+" },
-  { label: "AI Systems Led", value: "5+" },
-  { label: "Healthcare Focus", value: "100%" },
+  { label: "Projects Delivered", value: "20+" },
+  { label: "AI Agents Deployed", value: "10+" },
+  { label: "Monthly AI Calls", value: "10K+" },
+  { label: "Team Members Led", value: "15+" },
+  { label: "Healthcare Clients", value: "30+" },
 ];
 
 export const navLinks = [

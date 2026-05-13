@@ -14,13 +14,18 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand */}
           <div className="text-center md:text-left flex flex-col items-center md:items-start gap-2">
-            <Image
-              src="/images/logo.png"
-              alt="Aleem Portfolio"
-              width={120}
-              height={34}
-              className="h-8 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-            />
+            <div className="flex items-center gap-2">
+              <Image
+                src="/images/logo.png"
+                alt="Aleem Portfolio"
+                width={100}
+                height={28}
+                className="h-7 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+              />
+              <span className="text-xs font-semibold text-slate-lightest/60 hover:text-accent/80 transition-colors duration-300">
+                Aleem <span className="text-accent/60">Portfolio</span>
+              </span>
+            </div>
             <p className="text-[11px] text-slate/30 font-mono">
               Designed & Built by{" "}
               <span className="text-accent/60">{profileData.name}</span>

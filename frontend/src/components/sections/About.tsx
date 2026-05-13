@@ -4,6 +4,7 @@ import { FadeIn } from "@/components/MotionWrappers";
 import { profileData, statsData } from "@/lib/data";
 import { MapPin, Briefcase, GraduationCap, Cpu } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function About() {
   return (
@@ -22,10 +23,13 @@ export function About() {
               <div className="relative group">
                 <div className="relative w-full aspect-square max-w-[280px] mx-auto rounded-2xl overflow-hidden">
                   <div className="absolute inset-0 bg-accent/20 group-hover:bg-transparent transition-all duration-700 z-10 rounded-2xl" />
-                  <img
+                  <Image
                     src="/images/profile.jpg"
                     alt={profileData.name}
+                    width={280}
+                    height={280}
                     className="w-full h-full object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                    priority
                   />
                   <div className="absolute inset-0 border-2 border-accent/20 rounded-2xl translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500 -z-10" />
                 </div>
@@ -96,7 +100,7 @@ export function About() {
 
         {/* Stats Strip */}
         <FadeIn delay={0.3}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-20">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-20">
             {statsData.map((stat, i) => (
               <motion.div
                 key={stat.label}
