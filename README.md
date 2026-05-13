@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Header Banner -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a192f,50:112240,100:64ffda&height=220&section=header&text=Aleem%20Akhtar%20Portfolio&fontSize=42&fontColor=64ffda&animation=fadeIn&fontAlignY=36&desc=AI-Powered%20%E2%80%A2%20Full-Stack%20%E2%80%A2%20Healthcare%20Automation&descSize=16&descColor=ccd6f6&descAlignY=55" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a192f,50:112240,100:64ffda&height=220&section=header&text=Aleem%20Akhtar%20Portfolio&fontSize=42&fontColor=64ffda&animation=fadeIn&fontAlignY=36&desc=Product%20Manager%20%E2%80%A2%20Technical%20Project%20Manager%20%E2%80%A2%20AI%20Team%20Lead&descSize=16&descColor=ccd6f6&descAlignY=55" width="100%" />
 
 <!-- Badges -->
 [![Next.js](https://img.shields.io/badge/Next.js-14.2-000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
@@ -17,7 +17,7 @@
 
 > **A world-class, AI-powered developer portfolio** featuring a RAG chatbot, 3D hero scene, glassmorphism UI, premium email templates, and a full admin CMS — built by **Rana Muhammad Aleem Akhtar**.
 
-**🌐 Live: [aleem-portfolio.vercel.app](https://aleem-portfolio.vercel.app)**
+**🌐 Live: [aleem-portfolio.vercel.app](https://aleem-portfolio.vercel.app)** · [frontend-eta-ten-84.vercel.app](https://frontend-eta-ten-84.vercel.app)
 
 </div>
 
@@ -364,7 +364,7 @@ This project is built as a personal portfolio. All rights reserved by **Rana Muh
 
 **Built with 💚 by Rana Muhammad Aleem Akhtar**
 
-*AI Team Lead · Product Manager · Healthcare AI Specialist*
+*AI Team Lead · Product Manager · Technical Project Manager*
 
 </div>
 | POST | `/api/auth/login` | No | Admin login |
