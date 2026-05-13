@@ -77,12 +77,12 @@ This isn't just a portfolio — it's a **living technical showcase**. It demonst
 <td width="50%">
 
 ### 📧 Email & Contact
-- **Nodemailer** with Gmail SMTP
+- **Nodemailer** via Next.js API Route (works on Vercel)
 - Premium dark-themed HTML email templates
 - **Owner notification** with structured message card
 - **Auto thank-you** to sender with portfolio links
-- Contact form with Zod validation
-- Rate-limited submissions (3/min)
+- Input validation & HTML escaping
+- Rate-limited submissions (5/hr/IP)
 
 </td>
 </tr>
@@ -118,10 +118,10 @@ This isn't just a portfolio — it's a **living technical showcase**. It demonst
 
 | Layer | Technologies |
 |:---:|:---|
-| **Frontend** | Next.js 14 · React 18 · TypeScript 5.6 · Tailwind CSS 3.4 · Framer Motion 11 · GSAP 3.15 · Three.js · React Three Fiber · Drei · Zustand 5 · TanStack Query 5 · Recharts · ReactFlow |
+| **Frontend** | Next.js 14 · React 18 · TypeScript 5.6 · JavaScript · Tailwind CSS 3.4 · Framer Motion 11 · GSAP 3.15 · Three.js · React Three Fiber · Drei · Zustand 5 · TanStack Query 5 · Recharts · ReactFlow · Nodemailer |
 | **Backend** | NestJS 10 · Prisma 5.22 · PostgreSQL 16 · Redis 7 · Passport.js · JWT · Socket.io · Swagger · Helmet · Nodemailer |
 | **AI** | OpenAI GPT-4o-mini · LangChain · RAG Pipeline · Vector Embeddings · Streaming SSE |
-| **DevOps** | Docker Compose · GitHub Actions · Vercel · Render |
+| **DevOps** | Docker Compose · GitHub Actions · Vercel · Render · Railway · Nginx · Linux |
 
 </div>
 
@@ -138,6 +138,7 @@ aleem-portfolio/
 │   │   ├── app/
 │   │   │   ├── page.tsx                # Main portfolio (Hero → Contact)
 │   │   │   ├── api/chat/route.ts       # 🤖 Ask Aleem AI streaming endpoint
+│   │   │   ├── api/contact/route.ts    # 📧 Contact form email (Nodemailer)
 │   │   │   └── admin/                  # Admin CMS panel
 │   │   ├── components/
 │   │   │   ├── ai/AIChatWidget.tsx     # 💬 Premium chatbot widget
@@ -298,7 +299,7 @@ Access at `http://localhost:3000/admin/login`
 | 4 | **Techlution AI** | SaaS Platform | React · Three.js · GPT-4o · Socket.io |
 | 5 | **AI Job Assistant** | Career Automation | FastAPI · n8n · Celery · GPT-4o |
 | 6 | **Aleem Voice Agent** | Voice AI | LiveKit · Deepgram · 24-state FSM |
-| 7 | **Aleem Family Golf** | Booking Platform | React · Vite · Node.js · Stripe |
+| 7 | **Aleem Family Golf** | Booking Platform | Express · SQLite · GSAP · Docker |
 
 ### Career Journey (5 Roles)
 
@@ -310,9 +311,11 @@ Access at `http://localhost:3000/admin/login`
 | IT Support Manager Intern | PARCO | Jun — Sep 2024 |
 | Freelance Product Manager | Fiverr | Feb 2022 — Present |
 
-### Skill Groups (6 × 43 Skills)
+### Skill Groups (6 × 58 Skills)
 
 `Leadership & Delivery` · `AI & Automation` · `Frontend Development` · `Backend & Data` · `DevOps & Cloud` · `Tools & Platforms`
+
+**Tools & Platforms:** VS Code · Visual Studio · PyCharm · Git & GitHub · Postman · Figma · MySQL · MongoDB Atlas · pgAdmin · Slack · Notion · Digital Marketing · Technical Documentation · CRM Systems
 
 ---
 
@@ -335,6 +338,8 @@ SMTP_PASS=your_gmail_app_password
 ```env
 OPENAI_API_KEY=your_openai_api_key
 NEXT_PUBLIC_API_URL=http://localhost:4000/api
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_gmail_app_password
 ```
 
 ---
@@ -367,37 +372,6 @@ This project is built as a personal portfolio. All rights reserved by **Rana Muh
 *AI Team Lead · Product Manager · Technical Project Manager*
 
 </div>
-| POST | `/api/auth/login` | No | Admin login |
-| GET | `/api/admin/stats` | Yes | Dashboard stats |
-| PUT | `/api/profile` | Yes | Update profile |
-| POST/PUT/DELETE | `/api/experience` | Yes | Manage experience |
-| POST/PUT/DELETE | `/api/projects` | Yes | Manage projects |
-| POST/PUT/DELETE | `/api/skills` | Yes | Manage skills |
-| POST/PUT/DELETE | `/api/blog` | Yes | Manage blog posts |
-
-## Tech Stack
-
-**Frontend:** Next.js 14, React, TypeScript, Tailwind CSS, Framer Motion, Three.js / React Three Fiber, Lucide Icons
-
-**Backend:** Node.js, Express, TypeScript, Prisma ORM, JWT, Zod validation, Helmet, Rate Limiting
-
-**Database:** PostgreSQL 16 (Docker)
-
-**Design:** Dark theme, glassmorphism, 3D particle network, animated gradients, mouse-following spotlight
-
-## Features
-
-- Responsive on mobile, tablet, desktop
-- 3D hero with particle network, glowing sphere, floating orbs
-- Mouse-following gradient spotlight
-- Smooth scroll with active section highlighting
-- Animated section transitions (Framer Motion)
-- Glassmorphism cards with hover effects
-- Project modal with case study details
-- Contact form with backend API
-- Admin dashboard for content management
-- SEO metadata, Open Graph, Twitter cards
-- Rate-limited API endpoints
 - JWT-secured admin routes
 - Zod input validation
 - Accessible: semantic HTML, keyboard navigation, ARIA labels
