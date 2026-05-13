@@ -206,14 +206,14 @@ const MarkdownContent = memo(function MarkdownContent({
 // ════════════════════════════════════════════════════════════
 
 const suggestions = [
-  { icon: Brain, text: "Tell me about Aleem's AI projects" },
-  { icon: Briefcase, text: "What leadership experience does he have?" },
-  { icon: Code2, text: "Explain the Front Desk AI Agent architecture" },
-  { icon: Sparkles, text: "What technologies does he specialize in?" },
+  { icon: Brain, text: "Explain the Front Desk AI Agent" },
+  { icon: Sparkles, text: "Tell me about Techlution AI" },
+  { icon: Lightbulb, text: "What healthcare AI systems has Aleem built?" },
+  { icon: Code2, text: "What technologies does Aleem specialize in?" },
+  { icon: Layers, text: "Explain the Voice Agent architecture" },
+  { icon: Zap, text: "Show AI automation experience" },
+  { icon: Briefcase, text: "What technical leadership roles has he held?" },
   { icon: Target, text: "Is Aleem available for opportunities?" },
-  { icon: Lightbulb, text: "What healthcare AI systems has he built?" },
-  { icon: Layers, text: "Tell me about the Voice Agent project" },
-  { icon: Zap, text: "How does he approach project management?" },
 ];
 
 // ════════════════════════════════════════════════════════════
@@ -418,7 +418,7 @@ export function AIChatWidget() {
                   <div className="flex items-center gap-1.5">
                     <div className="w-1 h-1 rounded-full bg-emerald-400" />
                     <p className="text-[10px] text-slate/40 font-mono">
-                      RAG-Powered • GPT-4o
+                      Portfolio Intelligence • GPT-4o
                     </p>
                   </div>
                 </div>
@@ -473,8 +473,8 @@ export function AIChatWidget() {
                       transition={{ delay: 0.2 }}
                       className="text-[12px] text-slate/40 max-w-[280px] mx-auto leading-relaxed"
                     >
-                      Ask me about his AI projects, technical leadership, skills,
-                      or availability for roles.
+                      Ask me about his AI projects, technical leadership,
+                      healthcare automation, or availability.
                     </motion.p>
                   </div>
 
