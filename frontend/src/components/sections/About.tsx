@@ -99,7 +99,7 @@ export function About() {
 
         {/* Stats Strip */}
         <FadeIn delay={0.3}>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-20">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-20">
             {statsData.map((stat, i) => (
               <motion.div
                 key={stat.label}
