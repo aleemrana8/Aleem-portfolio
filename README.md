@@ -17,7 +17,7 @@
 
 > **A world-class, AI-powered developer portfolio** featuring a RAG chatbot, 3D hero scene, glassmorphism UI, premium email templates, and a full admin CMS — built by **Rana Muhammad Aleem Akhtar**.
 
-**🌐 Live: [aleem-portfolio.vercel.app](https://aleem-portfolio.vercel.app)** · [frontend-eta-ten-84.vercel.app](https://frontend-eta-ten-84.vercel.app)
+**🌐 Live: [frontend-eta-ten-84.vercel.app](https://frontend-eta-ten-84.vercel.app)**
 
 </div>
 
