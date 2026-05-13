@@ -1,13 +1,22 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateContactDto } from './dto/create-contact.dto';
+import { sendMail, buildOwnerEmail, buildSenderEmail } from '../lib/mailer';
 
 @Injectable()
 export class ContactService {
   constructor(private prisma: PrismaService) {}
 
   async create(dto: CreateContactDto) {
-    return this.prisma.contactMessage.create({ data: dto });
+    const msg = await this.prisma.contactMessage.create({ data: dto });
+
+    // Send emails in background — don't block the response
+    Promise.all([
+      sendMail(buildOwnerEmail(dto)),
+      sendMail(buildSenderEmail(dto)),
+    ]).catch((err) => console.error('Email send failed:', err));
+
+    return msg;
   }
 
   async findAll() {

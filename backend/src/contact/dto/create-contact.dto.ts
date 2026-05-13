@@ -13,6 +13,11 @@ export class CreateContactDto {
   @ApiProperty({ required: false })
   @IsOptional()
   @IsString()
+  subject?: string;
+
+  @ApiProperty({ required: false })
+  @IsOptional()
+  @IsString()
   company?: string;
 
   @ApiProperty()

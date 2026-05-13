@@ -38,12 +38,21 @@ function AleemAILogo({
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <path
-        d="M16 4L26 28H21L19 22.5H13L11 28H6L16 4Z"
+      {/* Rounded square background */}
+      <rect x="1" y="1" width="30" height="30" rx="7" fill="#0a192f" stroke="#64ffda" strokeWidth="1.2" strokeOpacity="0.4" />
+      {/* "RA" monogram */}
+      <text
+        x="16"
+        y="22"
+        textAnchor="middle"
+        fontFamily="ui-monospace, monospace"
+        fontWeight="700"
+        fontSize="14"
         fill="#64ffda"
         fillOpacity="0.9"
-      />
-      <path d="M13.8 19.5H18.2L16 13L13.8 19.5Z" fill="#0a192f" />
+      >
+        RA
+      </text>
     </svg>
   );
 }
