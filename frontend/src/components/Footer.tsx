@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, Heart, Instagram } from "lucide-react";
 import { profileData } from "@/lib/data";
 import Image from "next/image";
 
@@ -37,6 +37,7 @@ export function Footer() {
             {[
               { href: profileData.githubUrl, icon: Github, label: "GitHub" },
               { href: profileData.linkedinUrl, icon: Linkedin, label: "LinkedIn" },
+              { href: profileData.instagramUrl, icon: Instagram, label: "Instagram" },
               { href: `mailto:${profileData.email}`, icon: Mail, label: "Email" },
             ].map(({ href, icon: Icon, label }) => (
               <a

@@ -13,6 +13,7 @@ export const profileData = {
   resumeUrl: "/resume.pdf",
   githubUrl: "https://github.com/aleemrana8",
   linkedinUrl: "https://linkedin.com/in/aleem-akhtar",
+  instagramUrl: "https://www.instagram.com/aleemakhtar811",
 };
 
 export const experienceData = [

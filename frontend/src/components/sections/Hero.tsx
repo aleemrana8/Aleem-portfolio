@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, ChevronRight } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, ChevronRight, Instagram } from "lucide-react";
 import dynamic from "next/dynamic";
 import { profileData } from "@/lib/data";
 
@@ -101,6 +101,7 @@ export function Hero() {
             {[
               { href: profileData.githubUrl, icon: Github, label: "GitHub" },
               { href: profileData.linkedinUrl, icon: Linkedin, label: "LinkedIn" },
+              { href: profileData.instagramUrl, icon: Instagram, label: "Instagram" },
               { href: `mailto:${profileData.email}`, icon: Mail, label: "Email" },
             ].map(({ href, icon: Icon, label }) => (
               <a

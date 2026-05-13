@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/MotionWrappers";
 import { profileData } from "@/lib/data";
-import { Send, Github, Linkedin, Mail, CheckCircle, AlertCircle, Loader2, ArrowUpRight } from "lucide-react";
+import { Send, Github, Linkedin, Mail, CheckCircle, AlertCircle, Loader2, ArrowUpRight, Instagram } from "lucide-react";
 
 export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
@@ -74,6 +74,7 @@ export function Contact() {
                 {[
                   { href: `mailto:${profileData.email}`, icon: Mail, label: "Email", value: profileData.email },
                   { href: profileData.linkedinUrl, icon: Linkedin, label: "LinkedIn", value: "Aleem Akhtar" },
+                  { href: profileData.instagramUrl, icon: Instagram, label: "Instagram", value: "aleemakhtar811" },
                   { href: profileData.githubUrl, icon: Github, label: "GitHub", value: "aleemrana8" },
                 ].map(({ href, icon: Icon, label, value }) => (
                   <a
