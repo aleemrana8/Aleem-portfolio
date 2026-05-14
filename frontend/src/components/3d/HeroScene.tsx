@@ -1,11 +1,11 @@
-"use client";
+﻿"use client";
 
 import { useRef, useMemo, useCallback, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Sphere } from "@react-three/drei";
 import * as THREE from "three";
 
-// ─── Neural Network Particle System ────────────────────
+// â”€â”€â”€ Neural Network Particle System â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function NeuralNetwork() {
   const groupRef = useRef<THREE.Group>(null);
   const nodeCount = 120;
@@ -25,7 +25,7 @@ function NeuralNetwork() {
     const colors = new Float32Array(nodeCount * 3);
     const offsets = new Float32Array(nodeCount);
     const conn: number[] = [];
-    const accentColor = new THREE.Color("#64ffda");
+    const accentColor = new THREE.Color("#38bdf8");
     const dimColor = new THREE.Color("#233554");
 
     // Create layered distribution for depth
@@ -104,13 +104,13 @@ function NeuralNetwork() {
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" count={connections.length / 3} array={connections} itemSize={3} />
         </bufferGeometry>
-        <lineBasicMaterial color="#64ffda" transparent opacity={0.035} blending={THREE.AdditiveBlending} depthWrite={false} />
+        <lineBasicMaterial color="#38bdf8" transparent opacity={0.035} blending={THREE.AdditiveBlending} depthWrite={false} />
       </lineSegments>
     </group>
   );
 }
 
-// ─── AI Core Sphere ────────────────────────────────────
+// â”€â”€â”€ AI Core Sphere â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function AICoreSphere() {
   const meshRef = useRef<THREE.Mesh>(null);
   const glowRef = useRef<THREE.Mesh>(null);
@@ -150,7 +150,7 @@ function AICoreSphere() {
           <icosahedronGeometry args={[1, 3]} />
           <MeshDistortMaterial
             color="#0a192f"
-            emissive="#64ffda"
+            emissive="#38bdf8"
             emissiveIntensity={0.15}
             roughness={0.3}
             metalness={0.9}
@@ -164,8 +164,8 @@ function AICoreSphere() {
         <mesh ref={glowRef} scale={0.35}>
           <sphereGeometry args={[1, 32, 32]} />
           <meshStandardMaterial
-            color="#64ffda"
-            emissive="#64ffda"
+            color="#38bdf8"
+            emissive="#38bdf8"
             emissiveIntensity={2}
             transparent
             opacity={0.7}
@@ -175,7 +175,7 @@ function AICoreSphere() {
         {/* Orbital rings */}
         <mesh ref={ring1Ref} scale={2.2}>
           <torusGeometry args={[1, 0.008, 16, 128]} />
-          <meshStandardMaterial color="#64ffda" emissive="#64ffda" emissiveIntensity={0.6} transparent opacity={0.4} />
+          <meshStandardMaterial color="#38bdf8" emissive="#38bdf8" emissiveIntensity={0.6} transparent opacity={0.4} />
         </mesh>
         <mesh ref={ring2Ref} rotation={[Math.PI / 3, Math.PI / 6, 0]} scale={2.6}>
           <torusGeometry args={[1, 0.005, 16, 128]} />
@@ -183,7 +183,7 @@ function AICoreSphere() {
         </mesh>
         <mesh ref={ring3Ref} rotation={[Math.PI / 2.5, -Math.PI / 4, Math.PI / 8]} scale={3.0}>
           <torusGeometry args={[1, 0.003, 16, 128]} />
-          <meshStandardMaterial color="#64ffda" emissive="#64ffda" emissiveIntensity={0.3} transparent opacity={0.15} />
+          <meshStandardMaterial color="#38bdf8" emissive="#38bdf8" emissiveIntensity={0.3} transparent opacity={0.15} />
         </mesh>
 
         {/* Orbital node dots */}
@@ -212,12 +212,12 @@ function OrbitalDot({ index }: { index: number }) {
   return (
     <mesh ref={ref} scale={0.04}>
       <sphereGeometry args={[1, 8, 8]} />
-      <meshStandardMaterial color="#64ffda" emissive="#64ffda" emissiveIntensity={1.5} />
+      <meshStandardMaterial color="#38bdf8" emissive="#38bdf8" emissiveIntensity={1.5} />
     </mesh>
   );
 }
 
-// ─── Data Stream Particles ─────────────────────────────
+// â”€â”€â”€ Data Stream Particles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function DataStreamParticles() {
   const ref = useRef<THREE.Points>(null);
   const count = 600;
@@ -262,7 +262,7 @@ function DataStreamParticles() {
   );
 }
 
-// ─── Floating Energy Orbs ──────────────────────────────
+// â”€â”€â”€ Floating Energy Orbs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function EnergyOrbs() {
   const orbConfigs = useMemo(
     () =>
@@ -285,7 +285,7 @@ function EnergyOrbs() {
         <Float key={i} speed={orb.speed} rotationIntensity={0.1} floatIntensity={0.8} position={orb.position}>
           <mesh scale={orb.scale}>
             <sphereGeometry args={[1, 16, 16]} />
-            <meshStandardMaterial color="#64ffda" emissive="#64ffda" emissiveIntensity={orb.intensity} transparent opacity={0.5} />
+            <meshStandardMaterial color="#38bdf8" emissive="#38bdf8" emissiveIntensity={orb.intensity} transparent opacity={0.5} />
           </mesh>
         </Float>
       ))}
@@ -293,7 +293,7 @@ function EnergyOrbs() {
   );
 }
 
-// ─── Interactive Grid ──────────────────────────────────
+// â”€â”€â”€ Interactive Grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function HolographicGrid() {
   const ref = useRef<THREE.GridHelper>(null);
 
@@ -307,16 +307,16 @@ function HolographicGrid() {
   return (
     <gridHelper
       ref={ref}
-      args={[30, 30, "#64ffda", "#112240"]}
+      args={[30, 30, "#38bdf8", "#112240"]}
       position={[0, -4, 0]}
       rotation={[0, 0, 0]}
     >
-      <meshBasicMaterial attach="material" color="#64ffda" transparent opacity={0.04} />
+      <meshBasicMaterial attach="material" color="#38bdf8" transparent opacity={0.04} />
     </gridHelper>
   );
 }
 
-// ─── Main Scene Export ─────────────────────────────────
+// â”€â”€â”€ Main Scene Export â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export function HeroScene() {
   return (
     <div className="absolute inset-0 opacity-80">
@@ -334,9 +334,9 @@ export function HeroScene() {
       >
         <fog attach="fog" args={["#0a192f", 8, 25]} />
         <ambientLight intensity={0.15} />
-        <pointLight position={[10, 10, 10]} intensity={0.5} color="#64ffda" />
+        <pointLight position={[10, 10, 10]} intensity={0.5} color="#38bdf8" />
         <pointLight position={[-10, -5, -10]} intensity={0.25} color="#8892b0" />
-        <pointLight position={[0, 8, -5]} intensity={0.15} color="#64ffda" />
+        <pointLight position={[0, 8, -5]} intensity={0.15} color="#38bdf8" />
 
         <NeuralNetwork />
         <AICoreSphere />

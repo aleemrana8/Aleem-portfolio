@@ -10,6 +10,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { FadeIn } from "@/components/MotionWrappers";
+import { ConstellationBg } from "@/components/SectionVisualizations";
 
 const reasons = [
   {
@@ -54,6 +55,7 @@ export function WhyHireMe() {
   return (
     <section id="why-hire" className="py-24 md:py-32 relative">
       {/* Subtle gradient background */}
+      <ConstellationBg density={25} />
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[600px] h-[300px] bg-accent/[0.015] rounded-full blur-[100px]" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[200px] bg-purple-500/[0.01] rounded-full blur-[80px]" />

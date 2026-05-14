@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Phone, AudioLines, FileText, Brain, CalendarCheck, XCircle, RefreshCw, Server, MessageSquare, Volume2 } from "lucide-react";
@@ -47,7 +47,7 @@ export function ArchitectureDiagram() {
           transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <p className="text-[#64ffda] font-mono text-sm mb-2 tracking-wider">System Design</p>
+          <p className="text-[#38bdf8] font-mono text-sm mb-2 tracking-wider">System Design</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#ccd6f6]">
             Front Desk Agent Architecture
           </h2>
@@ -95,7 +95,7 @@ export function ArchitectureDiagram() {
                 <motion.circle
                   key={`dot-${conn.from}-${conn.to}`}
                   r="3"
-                  fill="#64ffda"
+                  fill="#38bdf8"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: [0, 1, 0] }}
                   viewport={{ once: true }}
@@ -138,8 +138,8 @@ export function ArchitectureDiagram() {
                       width: "120px",
                     }}
                   >
-                    <div className="flex flex-col items-center gap-1 p-3 rounded-xl bg-[#0a192f]/90 border border-[#1d3a5c] hover:border-[#64ffda]/50 transition-colors">
-                      <Icon className="w-5 h-5 text-[#64ffda]" />
+                    <div className="flex flex-col items-center gap-1 p-3 rounded-xl bg-[#0a192f]/90 border border-[#1d3a5c] hover:border-[#38bdf8]/50 transition-colors">
+                      <Icon className="w-5 h-5 text-[#38bdf8]" />
                       <span className="text-[10px] text-[#ccd6f6] text-center font-medium leading-tight">
                         {node.label}
                       </span>

@@ -373,13 +373,20 @@ export function AIChatWidget() {
             aria-label="Open Ask Aleem AI"
           >
             {/* Ping glow */}
-            <div className="absolute inset-0 rounded-full bg-accent/20 animate-ping opacity-20" />
+            <div className="absolute inset-0 rounded-full bg-accent/10 animate-ping opacity-15" />
+
+            {/* Pulsing halo */}
+            <div className="absolute -inset-3 rounded-full bg-accent/[0.04] animate-pulse-slow" />
 
             {/* Hover outer glow */}
-            <div className="absolute -inset-1.5 rounded-full bg-gradient-to-r from-accent/30 via-cyan-400/20 to-accent/30 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-700" />
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-accent/15 via-cyan-glow/10 to-accent/15 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700" />
+
+            {/* Orbiting ring */}
+            <div className="absolute -inset-1.5 rounded-full border border-accent/[0.08] group-hover:border-accent/25 transition-all duration-700" />
+            <div className="absolute -inset-3 rounded-full border border-accent/[0.04] group-hover:border-accent/10 transition-all duration-700" />
 
             {/* Main orb */}
-            <div className="relative w-14 h-14 rounded-full overflow-hidden border border-accent/30 backdrop-blur-xl shadow-lg shadow-accent/10 group-hover:shadow-accent/25 group-hover:border-accent/50 transition-all duration-500">
+            <div className="relative w-14 h-14 rounded-full overflow-hidden border border-accent/25 backdrop-blur-xl shadow-[0_0_40px_-5px_rgba(56,189,248,0.25)] group-hover:shadow-[0_0_50px_-5px_rgba(56,189,248,0.4)] group-hover:border-accent/50 transition-all duration-500">
               <AleemAILogo size={56} className="w-full h-full object-cover rounded-full" />
             </div>
           </motion.button>
@@ -396,29 +403,35 @@ export function AIChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.92 }}
             transition={{ duration: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
-            className="fixed bottom-6 right-6 z-50 w-[420px] max-w-[calc(100vw-2rem)] h-[640px] max-h-[calc(100vh-3rem)] flex flex-col rounded-2xl border border-white/[0.06] bg-[#0a192f]/[0.97] backdrop-blur-2xl shadow-2xl shadow-black/50 overflow-hidden"
+            className="fixed bottom-6 right-6 z-50 w-[420px] max-w-[calc(100vw-2rem)] h-[640px] max-h-[calc(100vh-3rem)] flex flex-col rounded-2xl border border-accent/[0.08] bg-navy-950/[0.95] backdrop-blur-3xl shadow-[0_25px_80px_-12px_rgba(0,0,0,0.7),0_0_60px_-20px_rgba(56,189,248,0.08)] overflow-hidden"
           >
             {/* Top gradient glow */}
-            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/[0.04] to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-accent/[0.04] to-transparent pointer-events-none" />
 
             {/* ── Header ── */}
-            <div className="relative flex items-center justify-between px-5 py-3.5 border-b border-white/[0.06]">
-              <div className="flex items-center gap-3">
+            <div className="relative flex items-center justify-between px-5 py-3.5 border-b border-accent/[0.06]">
+              {/* Header ambient glow */}
+              <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-accent/[0.03] to-transparent pointer-events-none" />
+              <div className="relative flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-xl overflow-hidden border border-accent/20">
+                  <div className="absolute -inset-1 rounded-xl bg-accent/[0.06] blur-md" />
+                  <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-accent/20 shadow-[0_0_25px_-5px_rgba(56,189,248,0.15)]">
                     <AleemAILogo size={40} className="w-full h-full object-cover" />
                   </div>
-                  {/* Online status */}
-                  <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#0a192f]" />
+                  {/* Online status with pulse */}
+                  <div className="absolute -bottom-0.5 -right-0.5">
+                    <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping opacity-40" />
+                    <div className="relative w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-navy-950" />
+                  </div>
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-slate-lightest tracking-tight">
                     Ask Aleem AI
                   </h3>
                   <div className="flex items-center gap-1.5">
-                    <div className="w-1 h-1 rounded-full bg-emerald-400" />
+                    <div className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
                     <p className="text-[10px] text-slate/40 font-mono">
-                      Portfolio Intelligence • GPT-4o
+                      Portfolio Intelligence System
                     </p>
                   </div>
                 </div>
@@ -455,7 +468,7 @@ export function AIChatWidget() {
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.5, ease: "easeOut" }}
-                      className="w-16 h-16 rounded-2xl overflow-hidden border border-accent/10 mx-auto mb-4"
+                      className="relative w-16 h-16 rounded-2xl overflow-hidden border border-accent/15 mx-auto mb-4 shadow-[0_0_30px_-8px_rgba(56,189,248,0.15)]"
                     >
                       <AleemAILogo size={64} className="w-full h-full object-cover" />
                     </motion.div>
@@ -487,7 +500,7 @@ export function AIChatWidget() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.25 + idx * 0.04 }}
                         onClick={() => sendMessage(s.text)}
-                        className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:bg-white/[0.05] hover:border-accent/10 transition-all duration-300 group text-left"
+                        className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:bg-accent/[0.04] hover:border-accent/15 hover:shadow-[0_0_20px_-8px_rgba(56,189,248,0.1)] transition-all duration-300 group text-left"
                       >
                         <s.icon
                           size={14}
@@ -556,15 +569,16 @@ export function AIChatWidget() {
             </div>
 
             {/* ── Input Area ── */}
-            <div className="relative px-4 py-3 border-t border-white/[0.06]">
-              <form onSubmit={handleSubmit} className="flex items-center gap-2">
+            <div className="relative px-4 py-3 border-t border-accent/[0.06]">
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-navy-950/50 to-transparent pointer-events-none" />
+              <form onSubmit={handleSubmit} className="relative flex items-center gap-2">
                 <input
                   ref={inputRef}
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask about experience, projects, skills..."
-                  className="flex-1 bg-white/[0.03] border border-white/[0.06] rounded-xl px-4 py-2.5 text-[13px] text-slate-lightest placeholder:text-slate/20 focus:outline-none focus:border-accent/20 focus:bg-white/[0.04] transition-all duration-300"
+                  className="flex-1 bg-white/[0.03] border border-white/[0.05] rounded-xl px-4 py-2.5 text-[13px] text-slate-lightest placeholder:text-slate/20 focus:outline-none focus:border-accent/20 focus:bg-accent/[0.02] focus:shadow-[0_0_20px_-8px_rgba(56,189,248,0.1)] transition-all duration-300"
                   disabled={isStreaming}
                   maxLength={500}
                 />
@@ -573,7 +587,7 @@ export function AIChatWidget() {
                   whileTap={{ scale: 0.95 }}
                   type="submit"
                   disabled={!input.trim() || isStreaming}
-                  className="w-10 h-10 rounded-xl bg-accent/[0.06] border border-accent/[0.1] flex items-center justify-center hover:bg-accent/[0.12] hover:border-accent/20 disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300"
+                  className="w-10 h-10 rounded-xl bg-accent/[0.08] border border-accent/15 flex items-center justify-center hover:bg-accent/[0.15] hover:border-accent/25 hover:shadow-[0_0_20px_-5px_rgba(56,189,248,0.2)] disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300"
                 >
                   <Send size={15} className="text-accent" />
                 </motion.button>

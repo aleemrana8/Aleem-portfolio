@@ -429,40 +429,265 @@ export const blogPostsData = [
     title: "How AI Agents Are Transforming Healthcare Front Desk Operations",
     slug: "ai-agents-healthcare-front-desk",
     excerpt: "Exploring how autonomous conversational AI is reshaping patient scheduling, reducing wait times, and enabling healthcare organizations to scale operations without adding headcount.",
+    content: `The healthcare industry is undergoing a seismic shift in how front desk operations are managed. Traditional phone-based scheduling — plagued by long hold times, human error, and staffing bottlenecks — is giving way to autonomous AI agents capable of handling thousands of patient interactions monthly.
+
+## The Problem with Traditional Front Desks
+
+Healthcare front desks are overwhelmed. A single clinic might receive 200+ calls daily, with staff juggling appointment scheduling, insurance verification, prescription refills, and urgent care triage — all simultaneously. The result? **45-minute average hold times**, missed appointments, and frustrated patients.
+
+## Enter AI Agents
+
+At CareCloud MTBC, we built the **Front Desk AI Agent** — a conversational AI system that handles inbound patient calls autonomously. The architecture leverages:
+
+- **LiveKit** for real-time voice streaming
+- **Deepgram** for speech-to-text with medical vocabulary optimization
+- **GPT-4o** for intent understanding and conversational flow
+- **ElevenLabs** for natural text-to-speech responses
+- A **24-state Finite State Machine (FSM)** engine for deterministic workflow control
+
+## Results at Scale
+
+Within 6 months of deployment, the system was processing **10,000+ calls per month** across 30+ healthcare practices. Key metrics:
+
+- **85% reduction** in average hold time
+- **92% first-call resolution** rate
+- **$2.1M annual savings** in operational costs across client practices
+- **Zero downtime** — the AI never calls in sick
+
+## The Technical Challenge
+
+The hardest part wasn't the AI — it was the **integration layer**. Healthcare systems run on legacy EHR platforms with FHIR/HL7 interfaces that weren't designed for real-time AI interaction. We built a middleware abstraction layer that normalizes data across different EHR systems, enabling the AI agent to work seamlessly regardless of the underlying platform.
+
+## What's Next
+
+The future of healthcare front desk AI isn't just answering calls — it's **proactive outreach**. Imagine AI agents calling patients for preventive care reminders, follow-up scheduling, and chronic disease management check-ins. We're already building toward this vision.
+
+Healthcare AI isn't about replacing humans — it's about freeing them to do what they do best: provide compassionate, complex care that only humans can deliver.`,
     tags: ["AI", "Healthcare", "Automation"],
     publishedAt: "2026-04-15",
+    published: true,
   },
   {
     id: "2",
     title: "Technical Project Management for AI Teams: Lessons from the Field",
     slug: "technical-pm-ai-teams",
     excerpt: "What it takes to lead AI engineering teams — from sprint planning and risk management to balancing innovation velocity with production reliability.",
+    content: `Leading AI engineering teams is fundamentally different from managing traditional software teams. The uncertainty is higher, the iteration cycles are longer, and the gap between "it works in a notebook" and "it works in production" is massive.
+
+## The Unique Challenges of AI Teams
+
+Traditional software development follows predictable patterns — define requirements, design, build, test, ship. AI development is **inherently experimental**. A model that achieves 95% accuracy in development might drop to 70% on real-world data. Sprint planning must account for this uncertainty.
+
+## My Framework for AI Team Leadership
+
+After leading AI teams at CareCloud MTBC for 3+ years, I've developed a practical framework:
+
+### 1. Two-Track Sprint Planning
+We run **parallel tracks** — a research track for exploration and a production track for shipping. Research tasks get time-boxed experiments (max 2 sprints), while production tasks follow standard Agile delivery.
+
+### 2. Risk-First Prioritization
+Every AI feature gets a **risk score** based on three factors:
+- **Data risk**: Is the training data sufficient and representative?
+- **Model risk**: Is the model architecture proven for this use case?
+- **Integration risk**: How complex is the production deployment?
+
+High-risk items get spikes and proofs-of-concept before entering the main backlog.
+
+### 3. Demo-Driven Development
+Weekly demos aren't optional — they're mandatory. Stakeholders see real outputs from real data every single week. This keeps expectations grounded and catches drift early.
+
+## Balancing Innovation and Reliability
+
+The biggest tension in AI teams is between **moving fast** (trying new models, architectures, approaches) and **keeping production stable** (maintaining SLAs, handling edge cases, monitoring drift).
+
+My approach: **70/20/10 allocation**. 70% of capacity goes to committed deliverables, 20% to technical debt and reliability improvements, and 10% to pure experimentation.
+
+## Key Takeaways
+
+- AI project timelines should have **30% buffer** for unexpected model behavior
+- **Cross-functional pairing** (ML engineer + domain expert) dramatically improves outcomes
+- **Monitoring is not optional** — deploy model observability from day one
+- Celebrate failed experiments — they're the fastest path to what actually works
+
+The best AI team leads aren't just technically excellent — they're translators who can bridge the gap between what the model can do and what the business needs it to do.`,
     tags: ["Project Management", "AI", "Leadership"],
     publishedAt: "2026-03-20",
+    published: true,
   },
   {
     id: "3",
     title: "Building Scalable Automation Workflows with n8n and AI",
     slug: "scalable-automation-n8n-ai",
     excerpt: "A technical overview of designing resilient, scalable automation pipelines using n8n, AI models, and healthcare system integrations.",
+    content: `Automation isn't just about connecting APIs — it's about building **resilient, observable, and scalable workflows** that handle real-world complexity without breaking at 3 AM.
+
+## Why n8n?
+
+After evaluating Zapier, Make, Temporal, and custom solutions, we chose **n8n** as our automation backbone for several reasons:
+
+- **Self-hosted**: Full control over data, critical for HIPAA-compliant healthcare workflows
+- **Code-when-needed**: Visual workflows for simple tasks, custom JavaScript/Python nodes for complex logic
+- **Webhook-native**: Easy integration with external systems via HTTP triggers
+- **Retry and error handling**: Built-in retry policies with dead-letter queues
+
+## Architecture Pattern: AI-Augmented Workflows
+
+Our standard pattern for AI-powered automation:
+
+\`\`\`
+Trigger → Validate → AI Process → Decision Gate → Action → Notify
+\`\`\`
+
+Each stage is idempotent and independently retryable. The AI processing step calls our model API with structured prompts and validates the response schema before passing it to the decision gate.
+
+## Real Example: Insurance Verification Automation
+
+One of our most impactful workflows automates insurance eligibility verification:
+
+1. **Trigger**: New appointment created in EHR system
+2. **Extract**: Pull patient insurance details from the EHR
+3. **AI Classify**: GPT-4o classifies the insurance plan type and determines the appropriate clearinghouse
+4. **Verify**: Call the clearinghouse API for real-time eligibility check
+5. **Decision**: Route based on result — approved (proceed), denied (flag for staff), or inconclusive (queue for manual review)
+6. **Update**: Write the verification result back to the EHR
+7. **Notify**: Alert staff only for exceptions requiring human intervention
+
+This workflow processes **500+ verifications daily** with a 94% automation rate.
+
+## Scaling Considerations
+
+- **Queue management**: High-volume workflows need proper queuing. We use Redis-backed queues for burst handling.
+- **Rate limiting**: External APIs have rate limits. Build backoff and throttling into your workflow design.
+- **Observability**: Every workflow execution gets a correlation ID. Log everything. Monitor success rates, latency percentiles, and error patterns.
+- **Testing**: n8n workflows need testing just like code. We maintain a staging n8n instance with mock APIs for integration testing.
+
+## Lessons Learned
+
+The biggest mistake teams make with automation is treating it as "set and forget." Production workflows need the same operational discipline as production code — monitoring, alerting, runbooks, and regular review.
+
+Automation doesn't eliminate work — it shifts work from repetitive execution to system design and exception handling. That's a much better use of human intelligence.`,
     tags: ["n8n", "Automation", "Architecture"],
     publishedAt: "2026-02-10",
+    published: true,
   },
   {
     id: "4",
     title: "From Software Engineering to AI Leadership: A Career Transition Blueprint",
     slug: "software-engineering-to-ai-leadership",
     excerpt: "Reflections on transitioning from hands-on software engineering to leading AI teams and driving technical strategy at scale.",
+    content: `Three years ago, I was a full-stack developer writing React components and NestJS APIs. Today, I lead AI engineering teams building autonomous systems that process 10,000+ interactions monthly. Here's how the transition happened — and what I'd tell anyone considering a similar path.
+
+## The Catalyst
+
+The shift started when CareCloud MTBC needed someone to bridge the gap between their existing software teams and emerging AI capabilities. I volunteered to lead a small pilot project — an AI-powered call summarization tool. That pilot turned into a team, which turned into a department.
+
+## What Changed (And What Didn't)
+
+### What Changed:
+- **Scope**: From individual features to system-level architecture decisions
+- **Timeline**: From sprint-level thinking to quarter-level strategy
+- **Metrics**: From "does the code work?" to "does the system deliver business value?"
+- **Communication**: From Slack messages to board-level presentations
+
+### What Didn't:
+- **Technical depth matters**: You can't lead AI teams without understanding transformers, embeddings, and inference optimization
+- **Code reviews still happen**: I still review architecture decisions and critical code paths
+- **Problem-solving is universal**: The debugging mindset transfers directly to organizational problem-solving
+
+## The Skills Gap
+
+The biggest skill gaps I had to close:
+
+1. **ML Fundamentals**: I took Andrew Ng's courses, read "Designing Machine Learning Systems" by Chip Huyen, and built several projects from scratch
+2. **Product Thinking**: Engineering leaders must understand business context. I started sitting in on product and sales meetings
+3. **People Management**: Leading humans is harder than leading machines. I invested heavily in 1:1s, feedback frameworks, and team dynamics
+4. **Strategic Communication**: Translating "we need to fine-tune the embedding model" into "this will reduce customer response time by 40%" is a critical skill
+
+## The Blueprint
+
+For engineers considering this transition:
+
+1. **Start with a pilot**: Find an AI use case in your current company and volunteer to lead it
+2. **Build your ML foundation**: You don't need a PhD, but you need working knowledge of modern AI architectures
+3. **Develop business acumen**: Understand how your company makes money and where AI can impact the bottom line
+4. **Practice leadership early**: Mentor junior developers, lead architecture discussions, present at team meetings
+5. **Document your impact**: Track metrics, write case studies, build a portfolio of delivered outcomes
+
+## The Uncomfortable Truth
+
+The transition from IC to leadership means **letting go of the keyboard** (partially). Your value shifts from what you build to what you enable others to build. That's uncomfortable for engineers who find identity in code. Embrace it — the leverage you gain is exponential.
+
+Your deepest technical knowledge becomes your **judgment** — knowing which technical bets to take, which architectures will scale, and which shortcuts will come back to haunt you.`,
     tags: ["Career", "Leadership", "AI"],
     publishedAt: "2026-01-15",
+    published: true,
   },
   {
     id: "5",
     title: "The Solution Architecture Mindset: Thinking Beyond Code",
     slug: "solution-architecture-mindset",
     excerpt: "Why thinking architecturally — not just technically — is the key to delivering systems that scale, adapt, and create lasting business value.",
+    content: `Most engineers think in code. Solution architects think in **systems**. The difference isn't intelligence — it's perspective. And developing that perspective is one of the most valuable career investments you can make.
+
+## Code vs. Architecture Thinking
+
+A developer sees a feature request and thinks: "How do I implement this?"
+An architect sees the same request and thinks: "How does this fit into the system? What are the second-order effects? How will this evolve in 6 months?"
+
+Both perspectives are necessary. But the architectural lens is what separates systems that scale from systems that collapse under their own weight.
+
+## The Five Lenses of Solution Architecture
+
+### 1. Business Alignment
+Every technical decision should trace back to a business outcome. Before choosing a technology, ask: "What business capability does this enable?" If you can't answer that, you're building a science project, not a product.
+
+### 2. Integration Thinking
+Modern systems don't exist in isolation. Every new component must integrate with existing systems, external APIs, data pipelines, and user workflows. The **integration layer** is often the hardest part of any architecture.
+
+### 3. Evolution Planning
+The system you build today will need to change tomorrow. Design for change:
+- Use well-defined interfaces between components
+- Prefer composition over monolithic coupling
+- Document decision rationale (ADRs) so future engineers understand the "why"
+
+### 4. Operational Reality
+Architecture that looks beautiful on a whiteboard but can't be monitored, debugged, or scaled is worthless. Consider:
+- **Observability**: Can you trace a request from entry to exit?
+- **Failure modes**: What happens when this component fails?
+- **Capacity**: What does 10x traffic look like?
+
+### 5. Security by Design
+Security isn't a feature you add later. It's a property of the architecture:
+- RBAC from day one
+- Data encryption at rest and in transit
+- Audit trails for sensitive operations
+- Input validation at every system boundary
+
+## Practical Example: Designing an AI Voice Agent
+
+When we designed the Front Desk AI Agent at CareCloud, the architecture decisions were driven by these lenses:
+
+- **Business**: Reduce call handling costs by 80% while maintaining patient satisfaction
+- **Integration**: Must work with 5+ different EHR systems via FHIR/HL7
+- **Evolution**: Voice model and LLM must be swappable as better options emerge
+- **Operations**: Every call must be recorded, transcribed, and auditable for compliance
+- **Security**: HIPAA compliance requires end-to-end encryption and access controls
+
+The result was a modular architecture where each component (voice, NLU, FSM, integration) is independently deployable and replaceable.
+
+## Developing the Mindset
+
+You don't need a certification to think architecturally. Start by:
+
+1. **Drawing systems before coding them**: Whiteboard the component diagram before writing line one
+2. **Asking "what if?" constantly**: What if this service goes down? What if traffic doubles? What if the API changes?
+3. **Reading post-mortems**: Learn from others' architectural failures
+4. **Reviewing open-source architectures**: Study how successful projects are structured
+
+The solution architecture mindset isn't about having all the answers — it's about asking the right questions before you start building.`,
     tags: ["Architecture", "Strategy", "Leadership"],
     publishedAt: "2025-12-01",
+    published: true,
   },
 ];
 
@@ -480,7 +705,7 @@ export const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
-  { label: "Blog", href: "#writing" },
+  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 

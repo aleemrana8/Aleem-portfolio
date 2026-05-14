@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -8,6 +8,7 @@ import {
   TechStackPills,
   ViewCaseStudyLink,
 } from "./ProjectParts";
+import { ProjectMiniViz } from "./ProjectVisualizations";
 
 export interface ProjectData {
   id: string;
@@ -91,7 +92,7 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
         <div className="p-7 md:p-8 flex flex-col h-full relative z-10">
           {/* Header row */}
           <div className="flex items-start justify-between mb-7">
-            <div className="w-12 h-12 rounded-xl bg-accent/[0.06] border border-accent/[0.08] flex items-center justify-center group-hover:bg-accent/[0.1] group-hover:border-accent/20 group-hover:shadow-[0_0_20px_-5px_rgba(100,255,218,0.15)] transition-all duration-500">
+            <div className="w-12 h-12 rounded-xl bg-accent/[0.06] border border-accent/[0.08] flex items-center justify-center group-hover:bg-accent/[0.1] group-hover:border-accent/20 group-hover:shadow-[0_0_20px_-5px_rgba(56, 189, 248,0.15)] transition-all duration-500">
               <Layers
                 size={22}
                 className="text-accent/50 group-hover:text-accent transition-colors duration-500"
@@ -107,9 +108,14 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
           </h3>
 
           {/* Tagline */}
-          <p className="text-sm text-slate/75 leading-relaxed mb-7 flex-grow">
+          <p className="text-sm text-slate/75 leading-relaxed mb-5 flex-grow">
             {project.tagline}
           </p>
+
+          {/* Mini Visualization */}
+          <div className="mb-5">
+            <ProjectMiniViz slug={project.slug} />
+          </div>
 
           {/* Tech Stack */}
           <TechStackPills technologies={project.stack} maxVisible={5} />

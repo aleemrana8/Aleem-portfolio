@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -24,7 +24,7 @@ export function BlogGrid({ posts }: BlogGridProps) {
   if (!published || published.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-20">
-        <FileText className="w-12 h-12 text-[#64ffda] mb-4" />
+        <FileText className="w-12 h-12 text-[#38bdf8] mb-4" />
         <p className="text-[#8892b0] text-lg">No blog posts published yet.</p>
       </div>
     );
@@ -41,16 +41,16 @@ export function BlogGrid({ posts }: BlogGridProps) {
           whileHover={{ y: -4 }}
         >
           <Link href={`/blog/${post.slug}`} className="block h-full">
-            <div className="relative h-full p-6 rounded-xl border border-[#1d3a5c] bg-[#112240]/60 backdrop-blur-sm hover:border-[#64ffda]/30 transition-all duration-300 group">
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#64ffda]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative h-full p-6 rounded-xl border border-[#1d3a5c] bg-[#112240]/60 backdrop-blur-sm hover:border-[#38bdf8]/30 transition-all duration-300 group">
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#38bdf8]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex items-start justify-between mb-4">
-                  <FileText className="w-7 h-7 text-[#64ffda]" />
-                  <ArrowUpRight className="w-5 h-5 text-[#8892b0] group-hover:text-[#64ffda] transition-colors" />
+                  <FileText className="w-7 h-7 text-[#38bdf8]" />
+                  <ArrowUpRight className="w-5 h-5 text-[#8892b0] group-hover:text-[#38bdf8] transition-colors" />
                 </div>
 
-                <h3 className="text-lg font-semibold text-[#ccd6f6] mb-2 group-hover:text-[#64ffda] transition-colors line-clamp-2">
+                <h3 className="text-lg font-semibold text-[#ccd6f6] mb-2 group-hover:text-[#38bdf8] transition-colors line-clamp-2">
                   {post.title}
                 </h3>
 
@@ -67,7 +67,7 @@ export function BlogGrid({ posts }: BlogGridProps) {
                         {post.tags.slice(0, 2).map((tag) => (
                           <span
                             key={tag}
-                            className="px-2 py-0.5 text-xs font-mono text-[#64ffda] bg-[#64ffda]/10 rounded"
+                            className="px-2 py-0.5 text-xs font-mono text-[#38bdf8] bg-[#38bdf8]/10 rounded"
                           >
                             {tag}
                           </span>

@@ -12,6 +12,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 import { FadeIn } from "@/components/MotionWrappers";
+import { OrbitalBg, FloatingParticles } from "@/components/SectionVisualizations";
 
 const capabilities = [
   {
@@ -68,6 +69,8 @@ export function TechnicalLeadership() {
   return (
     <section id="leadership" className="py-24 md:py-32 relative">
       {/* Background accent */}
+      <OrbitalBg />
+      <FloatingParticles count={12} />
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent/[0.02] rounded-full blur-[120px]" />
       </div>

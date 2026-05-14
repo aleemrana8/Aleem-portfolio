@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Github, Linkedin, Mail, Heart, Instagram } from "lucide-react";
 import { profileData } from "@/lib/data";
@@ -6,22 +6,37 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="relative py-14 border-t border-white/[0.04]">
-      {/* Top gradient line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[1px] bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+    <footer className="relative py-16 border-t border-accent/[0.06] overflow-hidden">
+      {/* Top glow line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[250px] h-10 bg-accent/[0.04] blur-3xl" />
+
+      {/* Footer ambient grid */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.02]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(56,189,248,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.3) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+          maskImage: "radial-gradient(ellipse 60% 80% at 50% 50%, black, transparent)",
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand */}
           <div className="text-center md:text-left flex flex-col items-center md:items-start gap-3">
             <div className="flex items-center gap-2.5 group">
-              <Image
-                src="/images/logo.png"
-                alt="Aleem Portfolio"
-                width={100}
-                height={28}
-                className="h-8 w-auto object-contain opacity-60 group-hover:opacity-100 group-hover:drop-shadow-[0_0_6px_rgba(100,255,218,0.25)] transition-all duration-500"
-              />
+              <div className="relative">
+                <div className="absolute -inset-2 rounded-full bg-accent/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-700" />
+                <Image
+                  src="/images/logo.png"
+                  alt="Aleem Portfolio"
+                  width={100}
+                  height={28}
+                  className="h-8 w-auto object-contain relative z-10 opacity-60 group-hover:opacity-100 group-hover:drop-shadow-[0_0_10px_rgba(56,189,248,0.3)] transition-all duration-500"
+                />
+              </div>
               <div className="flex flex-col leading-none">
                 <span className="text-sm font-bold tracking-wide gradient-text">ALEEM</span>
                 <span className="text-[8px] font-semibold text-accent/50 tracking-[0.25em] uppercase">Portfolio</span>
@@ -34,7 +49,7 @@ export function Footer() {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-4">
             {[
               { href: profileData.githubUrl, icon: Github, label: "GitHub" },
               { href: profileData.linkedinUrl, icon: Linkedin, label: "LinkedIn" },
@@ -46,17 +61,17 @@ export function Footer() {
                 href={href}
                 target={label !== "Email" ? "_blank" : undefined}
                 rel={label !== "Email" ? "noopener noreferrer" : undefined}
-                className="text-slate/40 hover:text-accent hover:-translate-y-1 transition-all duration-300"
+                className="w-9 h-9 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-slate/40 hover:text-accent hover:border-accent/20 hover:bg-accent/[0.06] hover:shadow-[0_0_15px_-5px_rgba(56,189,248,0.2)] hover:-translate-y-0.5 transition-all duration-300"
                 aria-label={label}
               >
-                <Icon size={16} strokeWidth={1.5} />
+                <Icon size={15} strokeWidth={1.5} />
               </a>
             ))}
           </div>
 
           {/* Copyright */}
           <p className="text-[11px] text-slate/25 flex items-center gap-1.5 font-mono">
-            © {new Date().getFullYear()} — Made with
+            Â© {new Date().getFullYear()} â€” Made with
             <Heart size={10} className="text-accent/50 fill-accent/50" />
           </p>
         </div>

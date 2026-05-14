@@ -7,6 +7,7 @@ import { ProjectCard } from "./ProjectCard";
 import { ProjectModal } from "./ProjectModal";
 import type { ProjectData } from "./ProjectCard";
 import { projectsData } from "@/lib/data";
+import { ProjectsNetworkBg } from "./ProjectVisualizations";
 
 const MemoizedProjectCard = memo(ProjectCard);
 
@@ -27,6 +28,9 @@ export function FeaturedProjects() {
 
   return (
     <section id="projects" className="py-24 md:py-32 relative">
+      {/* Network constellation background */}
+      <ProjectsNetworkBg />
+
       {/* Ambient background glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/[0.015] rounded-full blur-[120px]" />

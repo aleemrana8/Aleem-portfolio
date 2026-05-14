@@ -67,18 +67,23 @@ export function Hero() {
       {/* 3D Background */}
       <HeroScene />
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-transparent to-navy-900 z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy-900/30 via-transparent to-transparent z-[1]" />
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy-900 to-transparent z-[1]" />
+      {/* Gradient overlays — cinematic depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/60 via-transparent to-navy-950 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-950/40 via-transparent to-navy-950/20 z-[1]" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-navy-950 to-transparent z-[1]" />
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-navy-950/80 to-transparent z-[1]" />
+
+      {/* Holographic lens flare */}
+      <div className="absolute top-[20%] right-[15%] w-[400px] h-[400px] rounded-full bg-accent/[0.02] blur-[100px] z-[1] pointer-events-none" />
+      <div className="absolute bottom-[30%] left-[10%] w-[300px] h-[300px] rounded-full bg-cyan-glow/[0.015] blur-[80px] z-[1] pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full flex justify-center">
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="max-w-3xl"
+          className="max-w-3xl text-center"
         >
           {/* Name - Editorial style */}
           <motion.h1
@@ -124,7 +129,7 @@ export function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={item}
-            className="flex flex-wrap gap-3 mt-10"
+            className="flex flex-wrap justify-center gap-3 mt-10"
           >
             <a href="#projects" className="btn-filled group">
               <span className="relative z-10 flex items-center gap-2">
@@ -162,26 +167,33 @@ export function Hero() {
           {/* Social links */}
           <motion.div
             variants={item}
-            className="flex items-center gap-6 mt-12"
+            className="flex flex-wrap items-center justify-center gap-3 mt-12"
           >
-            {[
-              { href: profileData.githubUrl, icon: Github, label: "GitHub" },
-              { href: profileData.linkedinUrl, icon: Linkedin, label: "LinkedIn" },
-              { href: profileData.instagramUrl, icon: Instagram, label: "Instagram" },
-              { href: `mailto:${profileData.email}`, icon: Mail, label: "Email" },
-            ].map(({ href, icon: Icon, label }) => (
-              <a
-                key={label}
-                href={href}
-                target={label !== "Email" ? "_blank" : undefined}
-                rel={label !== "Email" ? "noopener noreferrer" : undefined}
-                className="text-slate hover:text-accent hover:-translate-y-1.5 transition-all duration-300"
-                aria-label={label}
-              >
-                <Icon size={20} strokeWidth={1.5} />
-              </a>
-            ))}
-            <div className="w-20 h-[1px] bg-gradient-to-r from-slate/30 to-transparent ml-1" />
+            <a
+              href={profileData.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl text-slate-lightest hover:border-accent/40 hover:bg-accent/[0.08] hover:text-accent hover:shadow-[0_0_30px_-8px_rgba(56,189,248,0.2)] transition-all duration-500 group"
+            >
+              <Github size={17} strokeWidth={1.5} className="text-slate group-hover:text-accent transition-colors duration-500" />
+              <span className="text-sm font-medium tracking-wide">GitHub</span>
+            </a>
+            <a
+              href={profileData.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl text-slate-lightest hover:border-accent/40 hover:bg-accent/[0.08] hover:text-accent hover:shadow-[0_0_30px_-8px_rgba(56,189,248,0.2)] transition-all duration-500 group"
+            >
+              <Linkedin size={17} strokeWidth={1.5} className="text-slate group-hover:text-accent transition-colors duration-500" />
+              <span className="text-sm font-medium tracking-wide">LinkedIn</span>
+            </a>
+            <a
+              href={`mailto:${profileData.email}`}
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-accent/30 bg-accent/[0.08] backdrop-blur-xl text-accent hover:bg-accent/[0.18] hover:border-accent/50 hover:shadow-[0_0_35px_-8px_rgba(56,189,248,0.3)] transition-all duration-500 group"
+            >
+              <Mail size={17} strokeWidth={1.5} />
+              <span className="text-sm font-medium tracking-wide">Contact</span>
+            </a>
           </motion.div>
         </motion.div>
       </div>

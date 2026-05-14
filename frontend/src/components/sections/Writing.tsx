@@ -4,11 +4,14 @@ import { FadeIn } from "@/components/MotionWrappers";
 import { blogPostsData } from "@/lib/data";
 import { ArrowUpRight, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
+import { ConstellationBg, FloatingParticles } from "@/components/SectionVisualizations";
 
 export function Writing() {
   return (
     <section id="blog" className="py-24 md:py-32 relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <ConstellationBg density={20} />
+      <FloatingParticles count={12} color="purple" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <FadeIn>
           <p className="text-accent font-mono text-sm mb-2 tracking-wider">Latest Articles</p>
           <h2 className="section-heading">Blog & Insights</h2>

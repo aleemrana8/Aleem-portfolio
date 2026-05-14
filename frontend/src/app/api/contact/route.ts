@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// ─── Rate Limiting (simple in-memory) ───
+// â”€â”€â”€ Rate Limiting (simple in-memory) â”€â”€â”€
 const rateMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT = 5; // max 5 emails per IP per hour
 const RATE_WINDOW = 60 * 60 * 1000; // 1 hour
@@ -17,15 +17,15 @@ function isRateLimited(ip: string): boolean {
   return entry.count > RATE_LIMIT;
 }
 
-// ─── Input Validation ───
+// â”€â”€â”€ Input Validation â”€â”€â”€
 function sanitize(str: string): string {
   return str.replace(/[<>]/g, "").trim();
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// ─── Email Templates ───
-const ACCENT = "#64ffda";
+// â”€â”€â”€ Email Templates â”€â”€â”€
+const ACCENT = "#38bdf8";
 const BG_DARK = "#0a192f";
 const BG_CARD = "#112240";
 const TEXT_LIGHT = "#ccd6f6";
@@ -39,13 +39,13 @@ function baseLayout(content: string) {
   return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
 <body style="margin:0;padding:0;background:${BG_DARK};font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:${BG_DARK};padding:40px 20px;"><tr><td align="center">
-<table width="600" cellpadding="0" cellspacing="0" style="background:${BG_CARD};border-radius:16px;border:1px solid rgba(100,255,218,0.1);overflow:hidden;">
+<table width="600" cellpadding="0" cellspacing="0" style="background:${BG_CARD};border-radius:16px;border:1px solid rgba(56, 189, 248,0.1);overflow:hidden;">
 <tr><td style="background:linear-gradient(135deg,${BG_DARK},${BG_CARD});padding:32px 40px;border-bottom:2px solid ${ACCENT};">
 <span style="font-size:24px;font-weight:700;color:${ACCENT};letter-spacing:1px;">RA</span>
 <span style="font-size:14px;color:${TEXT_DIM};margin-left:12px;">Rana Muhammad Aleem Akhtar</span>
 </td></tr>
 <tr><td style="padding:40px;">${content}</td></tr>
-<tr><td style="padding:24px 40px;border-top:1px solid rgba(100,255,218,0.08);text-align:center;">
+<tr><td style="padding:24px 40px;border-top:1px solid rgba(56, 189, 248,0.08);text-align:center;">
 <p style="margin:0;font-size:12px;color:${TEXT_DIM};">AI Team Lead &bull; Product Manager &bull; Healthcare AI Specialist</p>
 <p style="margin:8px 0 0;font-size:11px;color:${TEXT_DIM};">
 <a href="mailto:raleem811811@gmail.com" style="color:${ACCENT};text-decoration:none;">raleem811811@gmail.com</a>
@@ -57,16 +57,16 @@ function baseLayout(content: string) {
 function ownerEmail(data: { name: string; email: string; subject: string; message: string }) {
   return {
     to: "raleem811811@gmail.com",
-    subject: `Portfolio Contact: ${data.subject || "New Message"} — from ${data.name}`,
+    subject: `Portfolio Contact: ${data.subject || "New Message"} â€” from ${data.name}`,
     html: baseLayout(`
       <h1 style="margin:0 0 8px;font-size:22px;color:${TEXT_LIGHT};">New Portfolio Message</h1>
       <p style="margin:0 0 24px;font-size:13px;color:${TEXT_DIM};font-family:monospace;">via portfolio contact form</p>
       <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
-        <tr><td style="padding:12px 16px;background:${BG_DARK};border-radius:8px 8px 0 0;border-bottom:1px solid rgba(100,255,218,0.06);">
+        <tr><td style="padding:12px 16px;background:${BG_DARK};border-radius:8px 8px 0 0;border-bottom:1px solid rgba(56, 189, 248,0.06);">
           <span style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:${ACCENT};font-family:monospace;">From</span>
           <p style="margin:4px 0 0;font-size:15px;color:${TEXT_LIGHT};font-weight:600;">${escapeHtml(data.name)}</p>
         </td></tr>
-        <tr><td style="padding:12px 16px;background:${BG_DARK};border-bottom:1px solid rgba(100,255,218,0.06);">
+        <tr><td style="padding:12px 16px;background:${BG_DARK};border-bottom:1px solid rgba(56, 189, 248,0.06);">
           <span style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:${ACCENT};font-family:monospace;">Email</span>
           <p style="margin:4px 0 0;font-size:14px;color:${TEXT_LIGHT};">${escapeHtml(data.email)}</p>
         </td></tr>
@@ -87,12 +87,12 @@ function ownerEmail(data: { name: string; email: string; subject: string; messag
 function senderEmail(data: { name: string; email: string; message: string }) {
   return {
     to: data.email,
-    subject: "Thanks for reaching out — Aleem Akhtar",
+    subject: "Thanks for reaching out â€” Aleem Akhtar",
     html: baseLayout(`
       <h1 style="margin:0 0 8px;font-size:22px;color:${TEXT_LIGHT};">Thanks for reaching out!</h1>
       <p style="margin:0 0 24px;font-size:14px;color:${TEXT_DIM};">Hi ${escapeHtml(data.name)},</p>
       <p style="margin:0 0 16px;font-size:14px;color:${TEXT_LIGHT};line-height:1.7;">
-        I've received your message and will get back to you as soon as possible — usually within 24 hours.
+        I've received your message and will get back to you as soon as possible â€” usually within 24 hours.
       </p>
       <div style="padding:16px;background:${BG_DARK};border-radius:8px;border-left:3px solid ${ACCENT};margin-bottom:24px;">
         <span style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:${ACCENT};font-family:monospace;">Your Message</span>
@@ -103,7 +103,7 @@ function senderEmail(data: { name: string; email: string; message: string }) {
   };
 }
 
-// ─── POST Handler ───
+// â”€â”€â”€ POST Handler â”€â”€â”€
 export async function POST(req: NextRequest) {
   try {
     // Rate limit
@@ -129,7 +129,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Subject too long (max 200 chars)" }, { status: 400 });
     }
     if (!message || message.length < 10 || message.length > 5000) {
-      return NextResponse.json({ error: "Message is required (10–5000 chars)" }, { status: 400 });
+      return NextResponse.json({ error: "Message is required (10â€“5000 chars)" }, { status: 400 });
     }
 
     // SMTP config check

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -40,26 +40,32 @@ export function Navbar() {
         transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
         className={`fixed top-0 w-full z-50 transition-all duration-700 ${
           scrolled
-            ? "bg-navy-900/70 backdrop-blur-2xl border-b border-white/[0.04] shadow-xl shadow-black/10"
+            ? "bg-navy-950/70 backdrop-blur-3xl border-b border-accent/[0.04] shadow-[0_4px_40px_-5px_rgba(0,0,0,0.6),0_0_80px_-20px_rgba(56,189,248,0.03)]"
             : "bg-transparent"
         }`}
       >
+        {/* Navbar top glow line when scrolled */}
+        {scrolled && (
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-[1px] bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
+        )}
         <nav className="max-w-7xl mx-auto px-6 lg:px-12 h-[4.5rem] flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="relative group flex items-center gap-3" aria-label="Home">
             <div className="relative">
+              {/* Logo glow effect */}
+              <div className="absolute -inset-2 rounded-full bg-accent/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-700" />
               <Image
                 src="/images/logo.png"
                 alt="Aleem Portfolio"
                 width={140}
                 height={40}
-                className="h-10 w-auto object-contain group-hover:brightness-125 group-hover:drop-shadow-[0_0_8px_rgba(100,255,218,0.3)] transition-all duration-500"
+                className="h-10 w-auto object-contain relative z-10 group-hover:brightness-110 group-hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.4)] transition-all duration-500"
                 priority
               />
             </div>
             <div className="hidden sm:flex flex-col leading-none">
               <span className="text-[15px] font-bold tracking-wide gradient-text">ALEEM</span>
-              <span className="text-[9px] font-semibold text-accent/70 tracking-[0.25em] uppercase">Portfolio</span>
+              <span className="text-[9px] font-semibold text-accent/60 tracking-[0.25em] uppercase">Portfolio</span>
             </div>
           </a>
 
@@ -72,13 +78,21 @@ export function Navbar() {
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.1 * i + 0.3, duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-                className={`px-4 py-2 text-[13px] font-mono transition-all duration-500 rounded-lg ${
+                className={`relative px-4 py-2 text-[13px] font-mono transition-all duration-500 rounded-lg ${
                   activeSection === link.href.replace("#", "")
-                    ? "text-accent bg-accent/[0.06]"
-                    : "text-slate/80 hover:text-accent hover:bg-white/[0.02]"
+                    ? "text-accent"
+                    : "text-slate/70 hover:text-accent hover:bg-white/[0.02]"
                 }`}
               >
                 {link.label}
+                {/* Active indicator glow */}
+                {activeSection === link.href.replace("#", "") && (
+                  <motion.div
+                    layoutId="nav-active"
+                    className="absolute inset-0 rounded-lg bg-accent/[0.06] border border-accent/10"
+                    transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+                  />
+                )}
               </motion.a>
             ))}
           </div>

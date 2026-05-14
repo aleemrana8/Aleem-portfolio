@@ -13,6 +13,7 @@ import {
   ArrowUpRight,
   Sparkles,
 } from "lucide-react";
+import { HelixBg, FloatingParticles } from "@/components/SectionVisualizations";
 
 function ExperienceCard({
   exp,
@@ -245,7 +246,9 @@ export function Experience() {
 
   return (
     <section id="experience" className="py-24 md:py-32 relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <HelixBg />
+      <FloatingParticles count={15} />
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <FadeIn>
           <p className="text-accent font-mono text-sm mb-2 tracking-wider">
             Career Journey

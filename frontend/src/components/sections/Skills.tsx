@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FadeIn } from "@/components/MotionWrappers";
 import { skillGroupsData } from "@/lib/data";
 import { Crown, Brain, Code, Server, Cloud, Settings } from "lucide-react";
+import { HexGridBg, DataStreamBg, getSkillIcon } from "@/components/SectionVisualizations";
 
 const iconMap: Record<string, React.ReactNode> = {
   crown: <Crown size={20} strokeWidth={1.5} />,
@@ -17,7 +18,9 @@ const iconMap: Record<string, React.ReactNode> = {
 export function Skills() {
   return (
     <section id="skills" className="py-24 md:py-32 relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <HexGridBg />
+      <DataStreamBg />
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <FadeIn>
           <p className="text-accent font-mono text-sm mb-2 tracking-wider">Capabilities</p>
           <h2 className="section-heading">Skills & Expertise</h2>
@@ -46,22 +49,26 @@ export function Skills() {
 
                 {/* Skills */}
                 <div className="flex flex-wrap gap-2">
-                  {group.skills.map((skill, i) => (
-                    <motion.span
-                      key={skill}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        delay: groupIdx * 0.04 + i * 0.025,
-                        duration: 0.4,
-                        ease: [0.25, 0.4, 0.25, 1],
-                      }}
-                      className="tag-pill cursor-default"
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
+                  {group.skills.map((skill, i) => {
+                    const SkillIcon = getSkillIcon(skill);
+                    return (
+                      <motion.span
+                        key={skill}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          delay: groupIdx * 0.04 + i * 0.025,
+                          duration: 0.4,
+                          ease: [0.25, 0.4, 0.25, 1],
+                        }}
+                        className="tag-pill cursor-default inline-flex items-center gap-1.5"
+                      >
+                        <SkillIcon size={12} className="text-accent/50" />
+                        {skill}
+                      </motion.span>
+                    );
+                  })}
                 </div>
               </div>
             </FadeIn>

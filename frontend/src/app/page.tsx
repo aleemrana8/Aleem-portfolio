@@ -13,22 +13,34 @@ import { Writing } from "@/components/sections/Writing";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
 import { AIChatWidget } from "@/components/ai/AIChatWidget";
+import { SectionGlowSeparator } from "@/components/animations/AmbientParticles";
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <Hero />
+      <SectionGlowSeparator />
       <About />
+      <SectionGlowSeparator />
       <TechnicalLeadership />
+      <SectionGlowSeparator />
       <Experience />
+      <SectionGlowSeparator />
       <FeaturedProjects />
+      <SectionGlowSeparator />
       <TechWall />
+      <SectionGlowSeparator />
       <MetricsDashboard />
+      <SectionGlowSeparator />
       <Skills />
+      <SectionGlowSeparator />
       <WhyHireMe />
+      <SectionGlowSeparator />
       <Services />
+      <SectionGlowSeparator />
       <Writing />
+      <SectionGlowSeparator />
       <Contact />
       <Footer />
       <AIChatWidget />

@@ -2,6 +2,26 @@
 
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/MotionWrappers";
+import {
+  Brain, Code, Server, Cloud, Database, Globe, Workflow, Headphones, Mic,
+  Bot, Sparkles, Zap, FileCode, Palette, Boxes, Terminal, GitBranch,
+  MessageSquare, Layers, Rocket, Shield, Cpu, Radio,
+} from "lucide-react";
+
+const TECH_ICONS: Record<string, React.ElementType> = {
+  "GPT-4o": Sparkles, "LangChain": Workflow, "OpenAI": Brain, "Google Gemini": Bot,
+  "LiveKit": Headphones, "Deepgram": Mic, "ElevenLabs": Mic, "Cartesia": Radio,
+  "n8n": Workflow, "RAG Pipelines": Database,
+  "React": Code, "Next.js": Globe, "TypeScript": FileCode, "Tailwind CSS": Palette,
+  "Three.js": Boxes, "Framer Motion": Zap, "Vite": Rocket,
+  "Node.js": Server, "Express.js": Server, "FastAPI": Zap, "NestJS": Shield,
+  "Python": Terminal, "Prisma": Layers, "REST APIs": Globe, "Socket.io": MessageSquare,
+  "WebRTC": Headphones,
+  "PostgreSQL": Database, "MongoDB": Database, "Redis": Database, "pgvector": Cpu,
+  "SQLite": Database,
+  "Docker": Boxes, "GitHub Actions": GitBranch, "CI/CD": Rocket, "Vercel": Cloud,
+  "Render": Cloud, "Nginx": Server,
+};
 
 const technologies = [
   // AI & Automation
@@ -99,8 +119,12 @@ export function TechWall() {
                 delay: i * 0.025,
                 ease: [0.25, 0.4, 0.25, 1],
               }}
-              className={`inline-flex items-center px-4 py-2 text-[13px] font-mono rounded-full border border-white/[0.06] bg-white/[0.02] text-slate/80 cursor-default transition-all duration-300 ${categoryColors[tech.category] || ""}`}
+              className={`inline-flex items-center gap-1.5 px-4 py-2 text-[13px] font-mono rounded-full border border-white/[0.06] bg-white/[0.02] text-slate/80 cursor-default transition-all duration-300 ${categoryColors[tech.category] || ""}`}
             >
+              {(() => {
+                const Icon = TECH_ICONS[tech.name] || Cpu;
+                return <Icon size={13} className="opacity-40" />;
+              })()}
               {tech.name}
             </motion.span>
           ))}

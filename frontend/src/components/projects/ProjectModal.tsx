@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -79,7 +79,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             className="relative w-full max-w-3xl max-h-[88vh] flex flex-col rounded-2xl border border-white/[0.06] bg-[#0d1526]/95 backdrop-blur-xl overflow-hidden z-10"
             style={{
               boxShadow:
-                "0 0 0 1px rgba(100,255,218,0.03) inset, 0 25px 80px -12px rgba(0,0,0,0.6), 0 0 60px -20px rgba(100,255,218,0.08)",
+                "0 0 0 1px rgba(56, 189, 248,0.03) inset, 0 25px 80px -12px rgba(0,0,0,0.6), 0 0 60px -20px rgba(56, 189, 248,0.08)",
             }}
           >
             {/* Top accent gradient line */}

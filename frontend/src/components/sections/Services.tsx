@@ -4,6 +4,7 @@ import { FadeIn } from "@/components/MotionWrappers";
 import { servicesData } from "@/lib/data";
 import { motion } from "framer-motion";
 import { Brain, Target, Layers, Zap, Heart, Users } from "lucide-react";
+import { CircuitBg, FloatingParticles } from "@/components/SectionVisualizations";
 
 const iconMap: Record<string, React.ElementType> = {
   brain: Brain,
@@ -17,7 +18,9 @@ const iconMap: Record<string, React.ElementType> = {
 export function Services() {
   return (
     <section id="services" className="py-24 md:py-32 relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <CircuitBg />
+      <FloatingParticles count={10} />
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <FadeIn>
           <p className="text-accent font-mono text-sm mb-2 tracking-wider">
             How I Can Help

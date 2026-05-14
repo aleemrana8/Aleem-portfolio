@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -60,7 +60,7 @@ function ArchitectureFlowDiagram({ flow }: { flow: NonNullable<ProjectData["arch
             <g key={`${conn.from}-${conn.to}`}>
               <motion.line
                 x1={from.x} y1={from.y} x2={to.x} y2={to.y}
-                stroke="rgba(100,255,218,0.18)"
+                stroke="rgba(56, 189, 248,0.18)"
                 strokeWidth="2"
                 strokeDasharray="6 4"
                 initial={{ pathLength: 0, opacity: 0 }}
@@ -72,7 +72,7 @@ function ArchitectureFlowDiagram({ flow }: { flow: NonNullable<ProjectData["arch
                 cx={to.x - (to.x - from.x) * 0.12}
                 cy={to.y - (to.y - from.y) * 0.12}
                 r="3"
-                fill="rgba(100,255,218,0.4)"
+                fill="rgba(56, 189, 248,0.4)"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: i * 0.08 + 0.6 }}
@@ -83,7 +83,7 @@ function ArchitectureFlowDiagram({ flow }: { flow: NonNullable<ProjectData["arch
                   x={midX}
                   y={midY - 6}
                   textAnchor="middle"
-                  fill="rgba(100,255,218,0.45)"
+                  fill="rgba(56, 189, 248,0.45)"
                   fontSize="8"
                   fontFamily="ui-monospace, monospace"
                   initial={{ opacity: 0 }}
@@ -95,7 +95,7 @@ function ArchitectureFlowDiagram({ flow }: { flow: NonNullable<ProjectData["arch
               )}
               {/* Animated flowing dot */}
               <motion.circle
-                r="2.5" fill="#64ffda"
+                r="2.5" fill="#38bdf8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: [0, 0.8, 0] }}
                 transition={{ duration: 2.5, delay: i * 0.3 + 1, repeat: Infinity, repeatDelay: 4 }}
