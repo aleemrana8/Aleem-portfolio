@@ -78,7 +78,7 @@ export function LoadingScreen() {
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             />
             <Image
-              src="/images/logo.png"
+              src="/images/logo-v2.png"
               alt="Loading"
               width={100}
               height={100}

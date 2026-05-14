@@ -32,7 +32,7 @@ function AleemAILogo({
 }) {
   return (
     <Image
-      src="/images/logo.png"
+      src="/images/logo-v2.png"
       alt="Aleem AI"
       width={size}
       height={size}

@@ -55,7 +55,7 @@ export function Navbar() {
               {/* Logo glow effect */}
               <div className="absolute -inset-2 rounded-xl bg-accent/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-700" />
               <Image
-                src="/images/logo.png"
+                src="/images/logo-v2.png"
                 alt="Aleem Portfolio"
                 width={180}
                 height={50}

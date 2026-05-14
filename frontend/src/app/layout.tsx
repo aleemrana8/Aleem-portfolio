@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   alternates: { canonical: siteUrl },
   icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: "/images/logo-v2.png",
+    apple: "/images/logo-v2.png",
   },
 };
 
