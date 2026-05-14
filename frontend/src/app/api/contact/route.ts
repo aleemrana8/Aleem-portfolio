@@ -136,7 +136,6 @@ export async function POST(req: NextRequest) {
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASS;
     if (!smtpUser || !smtpPass) {
-      console.error("SMTP_USER or SMTP_PASS not configured");
       return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
     }
 
@@ -156,7 +155,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (err) {
-    console.error("Contact form error:", err);
+    console.error("[Contact] Email send error:", err);
     return NextResponse.json({ error: "Failed to send message" }, { status: 500 });
   }
 }

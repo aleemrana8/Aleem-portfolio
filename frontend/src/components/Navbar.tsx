@@ -50,22 +50,18 @@ export function Navbar() {
         )}
         <nav className="max-w-7xl mx-auto px-6 lg:px-12 h-[4.5rem] flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="relative group flex items-center gap-3" aria-label="Home">
+          <a href="#" className="relative group flex items-center" aria-label="Home">
             <div className="relative">
               {/* Logo glow effect */}
-              <div className="absolute -inset-2 rounded-full bg-accent/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-700" />
+              <div className="absolute -inset-2 rounded-xl bg-accent/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-700" />
               <Image
                 src="/images/logo.png"
                 alt="Aleem Portfolio"
-                width={140}
-                height={40}
-                className="h-10 w-auto object-contain relative z-10 group-hover:brightness-110 group-hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.4)] transition-all duration-500"
+                width={180}
+                height={50}
+                className="h-12 w-auto object-contain relative z-10 brightness-110 group-hover:brightness-125 group-hover:drop-shadow-[0_0_16px_rgba(56,189,248,0.5)] transition-all duration-500"
                 priority
               />
-            </div>
-            <div className="hidden sm:flex flex-col leading-none">
-              <span className="text-[15px] font-bold tracking-wide gradient-text">ALEEM</span>
-              <span className="text-[9px] font-semibold text-accent/60 tracking-[0.25em] uppercase">Portfolio</span>
             </div>
           </a>
 

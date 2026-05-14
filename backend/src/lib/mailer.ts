@@ -3,8 +3,8 @@ import * as nodemailer from "nodemailer";
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.SMTP_USER || "raleem811811@gmail.com",
-    pass: process.env.SMTP_PASS, // Gmail App Password
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
   },
 });
 
@@ -104,7 +104,7 @@ export function buildOwnerEmail(data: { name: string; email: string; subject?: s
   `);
 
   return {
-    to: process.env.SMTP_USER || "raleem811811@gmail.com",
+    to: process.env.SMTP_USER!,
     subject: `📬 Portfolio Contact: ${data.subject || data.name}`,
     html,
   };
@@ -176,7 +176,7 @@ function escapeHtml(str: string): string {
 
 export async function sendMail(options: { to: string; subject: string; html: string }) {
   return transporter.sendMail({
-    from: `"Aleem Akhtar Portfolio" <${process.env.SMTP_USER || "raleem811811@gmail.com"}>`,
+    from: `"Aleem Akhtar Portfolio" <${process.env.SMTP_USER}>`,
     ...options,
   });
 }

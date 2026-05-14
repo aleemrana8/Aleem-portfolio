@@ -1,10 +1,12 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateContactDto } from './dto/create-contact.dto';
 import { sendMail, buildOwnerEmail, buildSenderEmail } from '../lib/mailer';
 
 @Injectable()
 export class ContactService {
+  private readonly logger = new Logger(ContactService.name);
+
   constructor(private prisma: PrismaService) {}
 
   async create(dto: CreateContactDto) {
@@ -14,7 +16,7 @@ export class ContactService {
     Promise.all([
       sendMail(buildOwnerEmail(dto)),
       sendMail(buildSenderEmail(dto)),
-    ]).catch((err) => console.error('Email send failed:', err));
+    ]).catch((err: unknown) => this.logger.error('Email send failed', err instanceof Error ? err.stack : String(err)));
 
     return msg;
   }

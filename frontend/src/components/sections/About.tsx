@@ -5,10 +5,13 @@ import { profileData, statsData } from "@/lib/data";
 import { MapPin, Briefcase, GraduationCap, Cpu } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { SkillEcosystemBg, FloatingParticles } from "@/components/SectionVisualizations";
 
 export function About() {
   return (
     <section id="about" className="py-24 md:py-32 relative">
+      <SkillEcosystemBg />
+      <FloatingParticles count={12} />
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <FadeIn>
           <p className="text-accent font-mono text-sm mb-2 tracking-wider">Get to Know Me</p>

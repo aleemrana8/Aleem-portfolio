@@ -113,7 +113,7 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
           </p>
 
           {/* Mini Visualization */}
-          <div className="mb-5">
+          <div className="mb-5 rounded-xl border border-accent/[0.08] bg-accent/[0.02] p-4 group-hover:border-accent/[0.15] group-hover:bg-accent/[0.04] transition-all duration-500">
             <ProjectMiniViz slug={project.slug} />
           </div>
 

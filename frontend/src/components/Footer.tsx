@@ -28,18 +28,14 @@ export function Footer() {
           <div className="text-center md:text-left flex flex-col items-center md:items-start gap-3">
             <div className="flex items-center gap-2.5 group">
               <div className="relative">
-                <div className="absolute -inset-2 rounded-full bg-accent/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-700" />
+                <div className="absolute -inset-2 rounded-xl bg-accent/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-700" />
                 <Image
                   src="/images/logo.png"
                   alt="Aleem Portfolio"
-                  width={100}
-                  height={28}
-                  className="h-8 w-auto object-contain relative z-10 opacity-60 group-hover:opacity-100 group-hover:drop-shadow-[0_0_10px_rgba(56,189,248,0.3)] transition-all duration-500"
+                  width={140}
+                  height={40}
+                  className="h-10 w-auto object-contain relative z-10 opacity-70 group-hover:opacity-100 brightness-110 group-hover:drop-shadow-[0_0_10px_rgba(56,189,248,0.3)] transition-all duration-500"
                 />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-sm font-bold tracking-wide gradient-text">ALEEM</span>
-                <span className="text-[8px] font-semibold text-accent/50 tracking-[0.25em] uppercase">Portfolio</span>
               </div>
             </div>
             <p className="text-[11px] text-slate/30 font-mono">

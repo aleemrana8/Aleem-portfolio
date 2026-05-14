@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Phone, AudioLines, FileText, Brain, CalendarCheck, XCircle, RefreshCw, Server, MessageSquare, Volume2, Github, ExternalLink, Database, Bot, Mail, Search, FileCode, Shield, Workflow, Globe, Users, CreditCard, FileCheck, BarChart3, Mic, Radio, MonitorSmartphone, Layers, Clock, Star, Newspaper, CalendarDays, ShoppingCart } from "lucide-react";
 import { SectionLabel, TechStackPills } from "./ProjectParts";
+import { ProjectMiniViz } from "./ProjectVisualizations";
 import type { ProjectData } from "./ProjectCard";
 
 const flowIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -177,6 +178,20 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           />
         </motion.div>
       )}
+
+      {/* Live System Visualization */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
+      >
+        <SectionLabel>Live System Visualization</SectionLabel>
+        <div className="rounded-xl border border-accent/[0.1] bg-accent/[0.02] p-6 backdrop-blur-sm">
+          <div className="h-16">
+            <ProjectMiniViz slug={project.slug} />
+          </div>
+        </div>
+      </motion.div>
 
       {sections.map((section, i) => (
         <motion.div

@@ -10,6 +10,7 @@ import {
   HeartPulse,
 } from "lucide-react";
 import { FadeIn } from "@/components/MotionWrappers";
+import { InnovationLabBg, FloatingParticles } from "@/components/SectionVisualizations";
 
 const buildingItems = [
   {
@@ -65,6 +66,8 @@ const statusColors: Record<string, string> = {
 export function WhatImBuilding() {
   return (
     <section id="building" className="py-24 md:py-32 relative">
+      <InnovationLabBg />
+      <FloatingParticles count={10} />
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
       </div>

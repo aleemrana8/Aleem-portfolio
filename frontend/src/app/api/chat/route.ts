@@ -135,11 +135,16 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
-// ─── Cached Knowledge Base ───
+// ─── Cached Knowledge Base with TTL ───
 let cachedKnowledge: string | null = null;
+let cacheTimestamp = 0;
+const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+
 function getKnowledge(): string {
-  if (!cachedKnowledge) {
+  const now = Date.now();
+  if (!cachedKnowledge || now - cacheTimestamp > CACHE_TTL_MS) {
     cachedKnowledge = buildKnowledgeBase();
+    cacheTimestamp = now;
   }
   return cachedKnowledge;
 }
@@ -238,8 +243,6 @@ export async function POST(request: NextRequest) {
     });
 
     if (!openaiResponse.ok) {
-      const errText = await openaiResponse.text();
-      console.error("OpenAI API error:", openaiResponse.status, errText);
       return new Response(
         JSON.stringify({ error: "AI service is temporarily unavailable. Please try again." }),
         { status: 502, headers: { "Content-Type": "application/json" } }
@@ -282,8 +285,8 @@ export async function POST(request: NextRequest) {
               }
             }
           }
-        } catch (err) {
-          console.error("Stream processing error:", err);
+        } catch {
+          // Stream processing error — close gracefully
         } finally {
           controller.close();
         }
@@ -298,7 +301,6 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error("Chat API error:", error);
     return new Response(
       JSON.stringify({ error: "An unexpected error occurred." }),
       { status: 500, headers: { "Content-Type": "application/json" } }

@@ -59,9 +59,10 @@ This isn't just a portfolio — it's a **living technical showcase**. It demonst
 - **Next.js 14** App Router with TypeScript
 - **Three.js** 3D hero scene (React Three Fiber + Drei)
 - **Framer Motion** page transitions & scroll animations
-- **GSAP** advanced timeline animations
+- Dynamic imports for code-splitting & fast load
 - Glassmorphism cards with hover effects
 - Fully responsive (mobile-first)
+- ESLint + Prettier configured
 
 </td>
 </tr>
@@ -72,10 +73,10 @@ This isn't just a portfolio — it's a **living technical showcase**. It demonst
 - **NestJS 10** modular architecture
 - **Prisma ORM** with 24+ models
 - **PostgreSQL 16** (Docker)
-- **Redis 7** for caching
 - JWT authentication with Passport.js
 - Swagger API documentation
 - Rate limiting & Helmet security
+- Database health checks
 
 </td>
 <td width="50%">
@@ -122,10 +123,10 @@ This isn't just a portfolio — it's a **living technical showcase**. It demonst
 
 | Layer | Technologies |
 |:---:|:---|
-| **Frontend** | Next.js 14 · React 18 · TypeScript 5.6 · JavaScript · Tailwind CSS 3.4 · Framer Motion 11 · GSAP 3.15 · Three.js · React Three Fiber · Drei · Zustand 5 · TanStack Query 5 · Recharts · ReactFlow · Nodemailer |
-| **Backend** | NestJS 10 · Prisma 5.22 · PostgreSQL 16 · Redis 7 · Passport.js · JWT · Socket.io · Swagger · Helmet · Nodemailer |
+| **Frontend** | Next.js 14 · React 18 · TypeScript 5.6 · Tailwind CSS 3.4 · Framer Motion 11 · Three.js · React Three Fiber · Drei · TanStack Query 5 · Nodemailer |
+| **Backend** | NestJS 10 · Prisma 5.22 · PostgreSQL 16 · Passport.js · JWT · Swagger · Helmet · Nodemailer |
 | **AI** | OpenAI GPT-4o-mini · LangChain · RAG Pipeline · Vector Embeddings · Streaming SSE |
-| **DevOps** | Docker Compose · GitHub Actions · Vercel · Render · Railway · Nginx · Linux |
+| **DevOps** | Docker Compose · GitHub Actions · Vercel · Railway · ESLint · Prettier |
 
 </div>
 
@@ -213,6 +214,9 @@ npm install --legacy-peer-deps
 # Create .env.local with:
 #   OPENAI_API_KEY=your_key
 #   NEXT_PUBLIC_API_URL=http://localhost:4000/api
+#   NEXT_PUBLIC_SITE_URL=http://localhost:3000
+#   SMTP_USER=your_email@gmail.com
+#   SMTP_PASS=your_gmail_app_password
 npm run dev
 ```
 
@@ -342,6 +346,8 @@ SMTP_PASS=your_gmail_app_password
 ```env
 OPENAI_API_KEY=your_openai_api_key
 NEXT_PUBLIC_API_URL=http://localhost:4000/api
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_CHATBOT_NAME=Ask Aleem AI
 SMTP_USER=your_email@gmail.com
 SMTP_PASS=your_gmail_app_password
 ```

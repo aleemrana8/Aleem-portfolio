@@ -6,6 +6,8 @@ import { FadeIn } from "@/components/MotionWrappers";
 import { profileData } from "@/lib/data";
 import { Send, Github, Linkedin, Mail, CheckCircle, AlertCircle, Loader2, ArrowUpRight, Instagram } from "lucide-react";
 
+import { CommNetworkBg, FloatingParticles } from "@/components/SectionVisualizations";
+
 export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -36,6 +38,8 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-24 md:py-32 relative">
+      <CommNetworkBg />
+      <FloatingParticles count={10} />
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto">

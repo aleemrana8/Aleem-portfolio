@@ -18,11 +18,11 @@ function FrontDeskViz() {
   );
 
   return (
-    <div className="flex items-end justify-center gap-[2px] h-10">
+    <div className="flex items-end justify-center gap-[3px] h-14">
       {bars.map((bar, i) => (
         <motion.div
           key={i}
-          className="w-[2.5px] rounded-full bg-gradient-to-t from-accent/40 to-accent/80"
+          className="w-[3px] rounded-full bg-gradient-to-t from-accent/40 to-accent/80"
           animate={{ height: [3, bar.maxH, 3] }}
           transition={{
             duration: 1.6,
@@ -41,7 +41,7 @@ function FrontDeskViz() {
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 function VoiceAgentViz() {
   return (
-    <svg viewBox="0 0 160 44" className="w-full h-10" fill="none">
+    <svg viewBox="0 0 160 44" className="w-full h-14" fill="none">
       {/* Sine wave */}
       <motion.path
         d="M 0 22 Q 20 2, 40 22 T 80 22 T 120 22 T 160 22"
@@ -88,11 +88,11 @@ function VoiceAgentViz() {
 function RCMViz() {
   const steps = ["Claim", "Code", "Verify", "Bill", "Pay"];
   return (
-    <div className="flex items-center justify-center gap-0.5 h-10">
+    <div className="flex items-center justify-center gap-1 h-14">
       {steps.map((label, i) => (
         <div key={i} className="flex items-center gap-0.5">
           <motion.div
-            className="px-2 py-1 rounded-md border border-accent/20 bg-accent/[0.06] text-[8px] font-mono text-accent/70 whitespace-nowrap"
+            className="px-2.5 py-1.5 rounded-md border border-accent/20 bg-accent/[0.06] text-[9px] font-mono text-accent/70 whitespace-nowrap"
             animate={{
               borderColor: ["rgba(56, 189, 248,0.15)", "rgba(56, 189, 248,0.5)", "rgba(56, 189, 248,0.15)"],
               backgroundColor: ["rgba(56, 189, 248,0.03)", "rgba(56, 189, 248,0.1)", "rgba(56, 189, 248,0.03)"],
@@ -140,7 +140,7 @@ function TechlutionViz() {
   }
 
   return (
-    <svg viewBox="0 0 110 44" className="w-full h-10" fill="none">
+    <svg viewBox="0 0 110 44" className="w-full h-14" fill="none">
       {conns.map((c, i) => (
         <motion.line
           key={i}
@@ -176,7 +176,7 @@ function TechlutionViz() {
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 function JobAssistantViz() {
   return (
-    <svg viewBox="0 0 80 44" className="w-full h-10" fill="none">
+    <svg viewBox="0 0 80 44" className="w-full h-14" fill="none">
       {/* Radar rings */}
       {[16, 11, 6].map((r, i) => (
         <circle
@@ -239,7 +239,7 @@ function TechSpaceViz() {
   ];
 
   return (
-    <svg viewBox="0 0 110 44" className="w-full h-10" fill="none">
+    <svg viewBox="0 0 110 44" className="w-full h-14" fill="none">
       {links.map(([a, b], i) => (
         <motion.line
           key={i}
@@ -291,7 +291,7 @@ function FamilyGolfViz() {
   );
 
   return (
-    <div className="flex flex-col items-center gap-[3px] h-10 justify-center">
+    <div className="flex flex-col items-center gap-[4px] h-14 justify-center">
       {[0, 1, 2].map((row) => (
         <div key={row} className="flex gap-[3px]">
           {slots
@@ -299,7 +299,7 @@ function FamilyGolfViz() {
             .map((s, i) => (
               <motion.div
                 key={i}
-                className={`w-3.5 h-2.5 rounded-[2px] ${
+                className={`w-4 h-3 rounded-[3px] ${
                   s.booked
                     ? "bg-accent/50 border border-accent/30"
                     : "bg-white/[0.04] border border-white/[0.06]"
@@ -323,7 +323,7 @@ function FamilyGolfViz() {
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 function TreeSearchViz() {
   return (
-    <svg viewBox="0 0 120 44" className="w-full h-10" fill="none">
+    <svg viewBox="0 0 120 44" className="w-full h-14" fill="none">
       {/* Tree branches */}
       <line x1={60} y1={6} x2={30} y2={20} stroke="rgba(56, 189, 248,0.15)" strokeWidth={0.6} />
       <line x1={60} y1={6} x2={90} y2={20} stroke="rgba(56, 189, 248,0.15)" strokeWidth={0.6} />
@@ -388,7 +388,7 @@ function pickVizBySlug(slug: string): () => JSX.Element {
 export function ProjectMiniViz({ slug }: { slug: string }) {
   const Viz = VIZ_MAP[slug] || pickVizBySlug(slug);
   return (
-    <div className="w-full py-3 px-2 opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+    <div className="w-full py-4 px-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500">
       <Viz />
     </div>
   );

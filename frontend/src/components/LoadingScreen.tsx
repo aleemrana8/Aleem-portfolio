@@ -80,9 +80,9 @@ export function LoadingScreen() {
             <Image
               src="/images/logo.png"
               alt="Loading"
-              width={80}
-              height={80}
-              className="relative z-10 drop-shadow-[0_0_30px_rgba(56,189,248,0.35)]"
+              width={100}
+              height={100}
+              className="relative z-10 rounded-2xl brightness-110 drop-shadow-[0_0_40px_rgba(56,189,248,0.45)]"
             />
           </motion.div>
 

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/MotionWrappers";
+import { TechOrbitBg } from "@/components/SectionVisualizations";
 import {
   Brain, Code, Server, Cloud, Database, Globe, Workflow, Headphones, Mic,
   Bot, Sparkles, Zap, FileCode, Palette, Boxes, Terminal, GitBranch,
@@ -79,6 +80,7 @@ const categoryColors: Record<string, string> = {
 export function TechWall() {
   return (
     <section id="technologies" className="py-24 md:py-32 relative overflow-hidden">
+      <TechOrbitBg />
       {/* Gradient backdrop */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-accent/[0.015] rounded-full blur-[150px]" />

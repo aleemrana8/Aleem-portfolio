@@ -33,10 +33,10 @@ function AleemAILogo({
   return (
     <Image
       src="/images/logo.png"
-      alt="Aleem Portfolio"
+      alt="Aleem AI"
       width={size}
       height={size}
-      className={`rounded-md object-contain ${className}`}
+      className={`rounded-xl object-cover brightness-125 ${className}`}
     />
   );
 }

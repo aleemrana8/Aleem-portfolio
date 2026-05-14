@@ -185,6 +185,8 @@ model ChatSession {
   messages     ChatMessage[]
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
+
+  @@index([visitorId])
 }
 
 model ChatMessage {
@@ -262,6 +264,10 @@ model AnalyticsEvent {
   visitorId String?
   metadata  Json?
   createdAt DateTime @default(now())
+
+  @@index([event])
+  @@index([createdAt])
+  @@index([visitorId])
 }
 
 model VisitorSession {
@@ -276,6 +282,8 @@ model VisitorSession {
   duration  Int?     // seconds
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([visitorId])
 }
 
 model BlogView {
@@ -284,6 +292,8 @@ model BlogView {
   visitorId String?
   referrer  String?
   createdAt DateTime @default(now())
+
+  @@index([postId])
 }
 
 model ProjectMetric {
@@ -292,6 +302,9 @@ model ProjectMetric {
   event     String   // view | click_live | click_github | case_study_view
   visitorId String?
   createdAt DateTime @default(now())
+
+  @@index([projectId])
+  @@index([event])
 }
 
 // ─── Case Studies ───────────────────────────────────────
