@@ -17,7 +17,7 @@
 
 > **A world-class, AI-powered developer portfolio** featuring a RAG chatbot, 3D hero scene, glassmorphism UI, premium email templates, and a full admin CMS — built by **Rana Muhammad Aleem Akhtar**.
 
-**🌐 Live: [frontend-eta-ten-84.vercel.app](https://frontend-eta-ten-84.vercel.app)**
+**🌐 Live: [aleem-portfolio.vercel.app](https://aleem-portfolio.vercel.app)**
 
 </div>
 
@@ -27,9 +27,13 @@
 
 This isn't just a portfolio — it's a **living technical showcase**. It demonstrates full-stack engineering, AI integration, DevOps practices, and product thinking through:
 
-- **7 featured AI & automation projects** with interactive case studies
+- **7 featured AI & automation projects** with interactive case studies & system architecture diagrams
 - **Ask Aleem AI** — a strict portfolio-only RAG chatbot powered by GPT-4o-mini
 - **3D immersive hero** built with React Three Fiber & Drei
+- **Technical Leadership** section showcasing product delivery capabilities
+- **Why Hire Me** — recruiter-focused value proposition section
+- **Trusted Technologies Wall** — 40+ categorized tech pills with hover effects
+- **Impact Metrics Dashboard** — animated counters (10K+ calls, 72+ endpoints, 24-state FSM)
 - **Nodemailer integration** with premium branded HTML email templates
 - **Full admin panel** with blog CMS, contact management, and analytics
 
@@ -141,9 +145,9 @@ aleem-portfolio/
 │   │   │   ├── api/contact/route.ts    # 📧 Contact form email (Nodemailer)
 │   │   │   └── admin/                  # Admin CMS panel
 │   │   ├── components/
-│   │   │   ├── ai/AIChatWidget.tsx     # 💬 Premium chatbot widget
+│   │   │   ├── ai/AIChatWidget.tsx     # 💬 Premium chatbot widget with portfolio logo
 │   │   │   ├── 3d/HeroScene.tsx        # 🌐 Three.js 3D scene
-│   │   │   ├── sections/              # Hero, About, Experience, Projects, Skills, Contact
+│   │   │   ├── sections/              # Hero, About, Leadership, Experience, Skills, Metrics, TechWall, WhyHireMe, Services, Contact
 │   │   │   └── projects/              # ProjectCard, ProjectDetail, ArchitectureFlow
 │   │   └── lib/
 │   │       ├── knowledge-base.ts       # 📚 RAG knowledge base builder

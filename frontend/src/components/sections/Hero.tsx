@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ArrowDown, Github, Linkedin, Mail, ChevronRight, Instagram } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, ChevronRight, Instagram, Bot } from "lucide-react";
 import dynamic from "next/dynamic";
 import { profileData } from "@/lib/data";
 
@@ -124,20 +124,37 @@ export function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={item}
-            className="flex flex-wrap gap-4 mt-10"
+            className="flex flex-wrap gap-3 mt-10"
           >
-            <a href="#experience" className="btn-filled group">
+            <a href="#projects" className="btn-filled group">
               <span className="relative z-10 flex items-center gap-2">
-                View Experience
+                Explore Projects
                 <ChevronRight
                   size={16}
                   className="group-hover:translate-x-1 transition-transform duration-300"
                 />
               </span>
             </a>
-            <a href="#projects" className="btn-primary">
+            <a href="#experience" className="btn-primary">
               <span className="relative z-10 flex items-center gap-2">
-                View Projects
+                View Experience
+              </span>
+            </a>
+            <button
+              onClick={() => {
+                const event = new CustomEvent('open-ai-chat');
+                window.dispatchEvent(event);
+              }}
+              className="btn-primary group"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                <Bot size={16} className="text-accent" />
+                Ask Aleem AI
+              </span>
+            </button>
+            <a href="#contact" className="btn-primary">
+              <span className="relative z-10 flex items-center gap-2">
+                Contact Me
               </span>
             </a>
           </motion.div>

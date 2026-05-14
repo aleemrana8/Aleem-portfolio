@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Layers } from "lucide-react";
+import { Layers, Github } from "lucide-react";
 import {
   FeaturedBadge,
   TechStackPills,
@@ -24,8 +24,8 @@ export interface ProjectData {
   githubUrl?: string;
   liveUrl?: string;
   architectureFlow?: {
-    nodes: { id: string; label: string; icon: string; x: number; y: number }[];
-    connections: { from: string; to: string }[];
+    nodes: { id: string; label: string; desc?: string; icon: string; x: number; y: number }[];
+    connections: { from: string; to: string; label?: string }[];
   };
 }
 
@@ -115,8 +115,20 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
           <TechStackPills technologies={project.stack} maxVisible={5} />
 
           {/* CTA */}
-          <div className="mt-6 pt-5 border-t border-white/[0.03]">
+          <div className="mt-6 pt-5 border-t border-white/[0.03] flex items-center justify-between">
             <ViewCaseStudyLink />
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="w-9 h-9 rounded-lg bg-accent/[0.06] border border-accent/[0.1] flex items-center justify-center hover:bg-accent/[0.15] hover:border-accent/30 transition-all duration-300"
+                aria-label={`View ${project.title} on GitHub`}
+              >
+                <Github size={16} className="text-accent/60 hover:text-accent transition-colors duration-300" />
+              </a>
+            )}
           </div>
         </div>
       </motion.div>

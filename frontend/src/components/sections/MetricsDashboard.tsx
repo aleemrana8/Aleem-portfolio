@@ -2,16 +2,16 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Bot, FolderKanban, Users, Workflow, HeartPulse, PenLine } from "lucide-react";
+import { Bot, FolderKanban, Workflow, HeartPulse, Brain, Shield } from "lucide-react";
 import { useAnimatedCounter } from "@/hooks/useAnimatedCounter";
 
 const metrics = [
-  { label: "AI Calls", target: 10000, suffix: "+", icon: Bot },
-  { label: "Projects Delivered", target: 10, suffix: "+", icon: FolderKanban },
-  { label: "Team Members Led", target: 15, suffix: "+", icon: Users },
-  { label: "Automation Workflows", target: 50, suffix: "+", icon: Workflow },
-  { label: "Healthcare Clients", target: 30, suffix: "+", icon: HeartPulse },
-  { label: "Blog Articles", target: 5, suffix: "+", icon: PenLine },
+  { label: "Monthly AI Calls", target: 10000, suffix: "+", icon: Bot },
+  { label: "Backend Services", target: 44, suffix: "+", icon: FolderKanban },
+  { label: "API Endpoints", target: 72, suffix: "+", icon: Workflow },
+  { label: "FSM Engine States", target: 24, suffix: "", icon: Brain },
+  { label: "RBAC Tiers", target: 6, suffix: "", icon: Shield },
+  { label: "AI Assistants Built", target: 8, suffix: "+", icon: HeartPulse },
 ];
 
 function MetricCard({

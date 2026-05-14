@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   X,
   Send,
@@ -19,7 +20,7 @@ import {
 } from "lucide-react";
 
 // ════════════════════════════════════════════════════════════
-// ALEEM AI LOGO — Stylized "A" with accent glow
+// ALEEM AI LOGO — Portfolio logo image
 // ════════════════════════════════════════════════════════════
 
 function AleemAILogo({
@@ -30,30 +31,13 @@ function AleemAILogo({
   className?: string;
 }) {
   return (
-    <svg
+    <Image
+      src="/images/logo.png"
+      alt="Aleem Portfolio"
       width={size}
       height={size}
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      {/* Rounded square background */}
-      <rect x="1" y="1" width="30" height="30" rx="7" fill="#0a192f" stroke="#64ffda" strokeWidth="1.2" strokeOpacity="0.4" />
-      {/* "RA" monogram */}
-      <text
-        x="16"
-        y="22"
-        textAnchor="middle"
-        fontFamily="ui-monospace, monospace"
-        fontWeight="700"
-        fontSize="14"
-        fill="#64ffda"
-        fillOpacity="0.9"
-      >
-        RA
-      </text>
-    </svg>
+      className={`rounded-md object-contain ${className}`}
+    />
   );
 }
 
@@ -215,14 +199,14 @@ const MarkdownContent = memo(function MarkdownContent({
 // ════════════════════════════════════════════════════════════
 
 const suggestions = [
-  { icon: Brain, text: "Explain the Front Desk AI Agent" },
-  { icon: Sparkles, text: "Tell me about Techlution AI" },
-  { icon: Lightbulb, text: "What healthcare AI systems has Aleem built?" },
-  { icon: Code2, text: "What technologies does Aleem specialize in?" },
-  { icon: Layers, text: "Explain the Voice Agent architecture" },
-  { icon: Zap, text: "Show AI automation experience" },
-  { icon: Briefcase, text: "What technical leadership roles has he held?" },
-  { icon: Target, text: "Is Aleem available for opportunities?" },
+  { icon: Brain, text: "How did Aleem scale AI agents to handle 10K+ calls/month?" },
+  { icon: Sparkles, text: "Walk me through his most complex system architecture" },
+  { icon: Lightbulb, text: "What makes his healthcare AI work production-grade?" },
+  { icon: Code2, text: "How does he bridge product strategy with hands-on engineering?" },
+  { icon: Layers, text: "Explain the 24-state FSM voice agent he architected" },
+  { icon: Zap, text: "What end-to-end AI products has he shipped from zero to production?" },
+  { icon: Briefcase, text: "Why should we hire him as an AI/Technical Lead?" },
+  { icon: Target, text: "Is he open to senior AI leadership opportunities?" },
 ];
 
 // ════════════════════════════════════════════════════════════
@@ -270,6 +254,13 @@ export function AIChatWidget() {
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, [isOpen]);
+
+  // ── Listen for external open events (Hero CTA) ──
+  useEffect(() => {
+    const handler = () => setIsOpen(true);
+    window.addEventListener("open-ai-chat", handler);
+    return () => window.removeEventListener("open-ai-chat", handler);
+  }, []);
 
   // ── Send Message with Streaming ──
   const sendMessage = useCallback(
@@ -388,8 +379,8 @@ export function AIChatWidget() {
             <div className="absolute -inset-1.5 rounded-full bg-gradient-to-r from-accent/30 via-cyan-400/20 to-accent/30 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-700" />
 
             {/* Main orb */}
-            <div className="relative w-14 h-14 rounded-full bg-[#0a192f]/90 border border-accent/30 backdrop-blur-xl flex items-center justify-center shadow-lg shadow-accent/10 group-hover:shadow-accent/25 group-hover:border-accent/50 transition-all duration-500">
-              <AleemAILogo size={26} />
+            <div className="relative w-14 h-14 rounded-full overflow-hidden border border-accent/30 backdrop-blur-xl shadow-lg shadow-accent/10 group-hover:shadow-accent/25 group-hover:border-accent/50 transition-all duration-500">
+              <AleemAILogo size={56} className="w-full h-full object-cover rounded-full" />
             </div>
           </motion.button>
         )}
@@ -414,8 +405,8 @@ export function AIChatWidget() {
             <div className="relative flex items-center justify-between px-5 py-3.5 border-b border-white/[0.06]">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-xl bg-accent/[0.08] border border-accent/20 flex items-center justify-center">
-                    <AleemAILogo size={22} />
+                  <div className="w-10 h-10 rounded-xl overflow-hidden border border-accent/20">
+                    <AleemAILogo size={40} className="w-full h-full object-cover" />
                   </div>
                   {/* Online status */}
                   <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#0a192f]" />
@@ -464,9 +455,9 @@ export function AIChatWidget() {
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.5, ease: "easeOut" }}
-                      className="w-16 h-16 rounded-2xl bg-accent/[0.06] border border-accent/10 flex items-center justify-center mx-auto mb-4"
+                      className="w-16 h-16 rounded-2xl overflow-hidden border border-accent/10 mx-auto mb-4"
                     >
-                      <AleemAILogo size={36} />
+                      <AleemAILogo size={64} className="w-full h-full object-cover" />
                     </motion.div>
                     <motion.h4
                       initial={{ opacity: 0, y: 8 }}
@@ -528,16 +519,16 @@ export function AIChatWidget() {
                 >
                   {/* Avatar */}
                   <div
-                    className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${
+                    className={`w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0 mt-0.5 ${
                       msg.role === "user"
                         ? "bg-accent/[0.08] border border-accent/15"
-                        : "bg-white/[0.03] border border-white/[0.06]"
+                        : "border border-white/[0.06]"
                     }`}
                   >
                     {msg.role === "user" ? (
                       <User size={13} className="text-accent/70" />
                     ) : (
-                      <AleemAILogo size={15} />
+                      <AleemAILogo size={28} className="w-full h-full object-cover rounded-lg" />
                     )}
                   </div>
 
